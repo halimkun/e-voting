@@ -1,0 +1,29 @@
+.container-fluid{
+  min-height: 100vh;
+  background: #011B3B;
+}
+.wadah{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.form-login img{
+  width: 180px;
+  height: 180px;
+}
+
+@media (max-width : 750px){
+  .tulisan-atas h2{
+    font-size: 25px;
+  }
+  .tulisan-atas h4{
+    font-size: 20px;
+  }
+  .wadah{
+    width: 70%;
+  }
+  .form-login img{
+    margin-bottom: 30px;
+  }
+}

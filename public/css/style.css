@@ -1,0 +1,29 @@
+
+.col-view-visi-misi p{
+  margin-bottom: 0!important;
+  margin-left: 10px;
+}
+#img_preview{
+  max-height: 100px!important;
+}
+
+
+
+
+
+/* mobile version */
+@media (max-width : 720px){
+  .progress-bar-statistik-dashbord{
+    margin-bottom: 10px!important;
+  }
+  #img_preview{
+    max-height: 180px!important;
+  }
+  .info-peserta-pagination{
+    float: right!important;
+    margin-bottom: 10px!important;
+  }
+  .download-sampel-peserta{
+    margin-top: 10px!important;
+  }
+}
