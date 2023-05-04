@@ -99,7 +99,8 @@
 </section>
 <?= $this->endSection(); ?>
 
-<?= $this->section('script_js'); ?>
+<?= $this->section('script_css'); ?>
+<link href="/summernote/summernote-bs4.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
 <?= $this->endSection(); ?>
 
