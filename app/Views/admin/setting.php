@@ -118,9 +118,12 @@
 </section>
 <?= $this->endSection(); ?>
 
+<?= $this->section('script_css'); ?>
+<link href="/summernote/summernote-bs4.min.css" rel="stylesheet">
+<?= $this->endSection(); ?>
 
 <?= $this->section('script_js'); ?>
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<script src="/summernote/summernote-bs4.min.js"></script>
 
 <script>
   $(document).ready(function() {
