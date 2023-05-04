@@ -14,7 +14,7 @@ class AdminSeeder extends Seeder
 		  'username' => 'admin',
 		  'password' => password_hash('admin', PASSWORD_DEFAULT),
 		  'nama' => 'ADMIN NI YEE',
-		  'foto_profile' => 'admin.png'
+		  'foto_profile' => 'admin.jpg'
 		];
 		$this->db->table('admin')->insert($data);
 	}

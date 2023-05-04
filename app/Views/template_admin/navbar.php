@@ -3,8 +3,8 @@
         <ul class="navbar-nav mr-3">
           <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
         </ul>
-        <form class="form-inline mr-auto">
-        </form>
+        <div class="form-inline mr-auto">
+        </div>
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
               <img alt="image" src="<?= base_url(); ?>/img/<?= getDataAdmin('foto_profile'); ?>" class="rounded-circle mr-1">

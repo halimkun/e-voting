@@ -69,12 +69,13 @@ class Pengaturan extends BaseController
 			$eks 		= $this->request->getFile('logo')->getClientExtension();
 			$logoName 	= 'logo.' . $eks;
 			$tmpName 	= $logo['tmp_name'];
+
 			if (unlink('img/' . $logo_lama)) {
 				move_uploaded_file($tmpName, 'img/' .  $logoName);
+				setting('App.logo_sekolah', $logoName);
 			}
 		}
 
-		setting('App.logo_sekolah', $logoName);
 
 		setFlasher('Selamat!!', 'success', 'Data-berhasil-diubah!!');
 		return redirect()->to(base_url('/admin/setting'));

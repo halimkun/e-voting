@@ -76,11 +76,11 @@
                   </td>
                   <td>
                     <?php if($dt->status_pilihan == 1) : ?>
-                      <div class="badge badge-success">
+                      <div class="badge badge-sm badge-success">
                         Sudah Memilih
                       </div>
                     <?php else : ?>
-                      <div class="badge badge-danger">
+                      <div class="badge badge-sm badge-danger">
                         Belum Memilih
                       </div>
                     <?php endif; ?>
@@ -94,13 +94,13 @@
                   </td>
                   <td>
                     <div class="d-flex">
-                      <button type="button" data-toggle="modal" data-target="#edit" class="btn btn-icon btn-info mr-1 btn-edit" data-href="<?= base_url(); ?>/admin/peserta/getOneData/<?= $dt->id_peserta; ?>">
+                      <button type="button" data-toggle="modal" data-target="#edit" class="btn btn-sm btn-icon btn-info mr-1 btn-edit" data-href="<?= base_url(); ?>/admin/peserta/getOneData/<?= $dt->id_peserta; ?>">
                         <i class="far fa-edit "></i>
                       </button>
                       <form action="<?= base_url(); ?>/admin/peserta/hapus/<?= $dt->id_peserta; ?>" method="post" >
                         <input type="hidden" name="_method" value="DELETE">
                         <?= csrf_field(); ?>
-                        <button class="btn btn-icon btn-danger" type="submit" onclick="return confirm('yakin ingin menghapus data?')">
+                        <button class="btn btn-sm btn-icon btn-danger" type="submit" onclick="return confirm('yakin ingin menghapus data?')">
                           <i class="fas fa-trash"></i>
                         </button>
                       </form>
