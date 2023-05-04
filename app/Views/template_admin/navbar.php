@@ -40,21 +40,44 @@
                 <span>Dashboard</span>
               </a>
             </li>
-            <li class="menu-header">Data Kandidat</li>
+            <li class="menu-header">Publikasi</li>
+            <li class="<?= ($act == 'info') ? 'active' : ''; ?>">
+              <a class="nav-link" href="<?= base_url(); ?>/admin/info">
+                <i class="fas fa-info-circle"></i>
+                <span>Informasi</span>
+              </a>
+            </li>
+            <li class="<?= ($act == 'agenda') ? 'active' : ''; ?>">
+              <a class="nav-link" href="<?= base_url(); ?>/admin/agenda">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Agenda</span>
+              </a>
+            </li>
+            <li class="<?= ($act == 'downloads') ? 'active' : ''; ?>">
+              <a class="nav-link" href="<?= base_url(); ?>/admin/files">
+                <i class="fas fa-file"></i>
+                <span>Downloads</span>
+              </a>
+            </li>
+            <li class="menu-header">Data</li>
+            <li class="<?= ($act == 'anggota') ? 'active' : ''; ?>">
+              <a class="nav-link" href="<?= base_url(); ?>/admin/anggota">
+                <i class="fas fa-users"></i>
+                <span>Anggota Aktif</span>
+              </a>
+            </li>
             <li class="<?= ($act == 'kandidat') ? 'active' : ''; ?>">
               <a class="nav-link" href="<?= base_url(); ?>/admin/kandidat">
                 <i class="fas fa-user-friends"></i>
-                <span>Data kandidat</span>
+                <span>Kandidat</span>
               </a>
             </li>
-            <li class="menu-header">Peserta</li>
             <li class="<?= ($act == 'peserta') ? 'active' : ''; ?>">
               <a class="nav-link" href="<?= base_url(); ?>/admin/peserta">
                 <i class="fas fa-users"></i>
                 <span>Peserta</span>
               </a>
             </li>
-            <li class="menu-header">Hasil Voting</li>
             <li class="<?= ($act == 'hasil_voting') ? 'active' : ''; ?>">
               <a class="nav-link" href="<?= base_url(); ?>/admin/hasilVoting">
                 <i class="fas fa-poll-h"></i>
@@ -83,14 +106,13 @@
               </ul>
             </li>
 
-            <li class="menu-header">My Profile</li>
+            <li class="menu-header">Setting</li>
             <li class="<?= ($act == 'profile') ? 'active' : ''; ?>">
               <a class="nav-link" href="<?= base_url(); ?>/admin/profile">
                 <i class="fas fa-user-edit"></i>
                 <span>Edit profile</span>
               </a>
             </li>
-            <li class="menu-header">Setting</li>
             <li class="<?= ($act == 'setting') ? 'active' : ''; ?>">
               <a class="nav-link" href="<?= base_url(); ?>/admin/setting">
                 <i class="fas fa-cogs"></i>

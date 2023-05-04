@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
@@ -15,13 +16,15 @@
   <link rel="stylesheet" href="<?= base_url(); ?>/css/stisla.css">
   <link rel="stylesheet" href="<?= base_url(); ?>/css/components.css">
   <link rel="stylesheet" href="<?= base_url(); ?>/css/style.css">
-  
+
   <!-- custom css -->
-  <?php if(isset($css)) : ?>
-   <?php foreach($css as $c) : ?>
-     <link rel="stylesheet" href="<?= base_url(); ?>/<?= $c; ?>.css">
-   <?php endforeach; ?>
+  <?php if (isset($css)) : ?>
+    <?php foreach ($css as $c) : ?>
+      <link rel="stylesheet" href="<?= base_url(); ?>/<?= $c; ?>.css">
+    <?php endforeach; ?>
   <?php endif; ?>
+  
+  <?= $this->renderSection('script_css') ;?>
 </head>
 
 <body>
@@ -32,12 +35,12 @@
 
       <!-- Main Content -->
       <div class="main-content">
-         <?= $this->renderSection('content'); ?>
+        <?= $this->renderSection('content'); ?>
       </div>
-      
+
       <!-- footer -->
       <?= $this->include('template_admin/footer'); ?>
-      
+
     </div>
   </div>
 
@@ -52,16 +55,15 @@
   <script src="<?= base_url(); ?>/js/scripts_stisla.js"></script>
   <script src="<?= base_url(); ?>/js/custom.js"></script>
 
-  
+
   <!-- custom javascript -->
-  <?php if(isset($js)) : ?>
-   <?php foreach($js as $j) : ?>
-    <script src="<?= base_url(); ?>/<?= $j; ?>.js"></script>
-   <?php endforeach; ?>
+  <?php if (isset($js)) : ?>
+    <?php foreach ($js as $j) : ?>
+      <script src="<?= base_url(); ?>/<?= $j; ?>.js"></script>
+    <?php endforeach; ?>
   <?php endif; ?>
-  
+
   <?= $this->renderSection('script_js'); ?>
-  
-  
 </body>
+
 </html>
