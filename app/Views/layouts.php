@@ -29,7 +29,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ms-auto my-2 my-lg-0">
           <li class="nav-item"><a class="nav-link text-white" href="/#page-top">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="/#about">About</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="/anggota">Anggota</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="/informasi">Informasi</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="/download">Download</a></li>
@@ -40,13 +40,13 @@
       </div>
     </div>
   </nav>
-  
-    <?= $this->renderSection('content') ;?>
+
+  <?= $this->renderSection('content'); ?>
 
   <!-- Footer-->
   <footer class="bg-dark py-5 mt-0">
     <div class="container px-4 px-lg-5">
-      <div class="small text-center text-muted">Copyright &copy; 2023 - SMA NEGRI 1 KESESI</div>
+      <div class="small text-center text-muted">Copyright &copy; 2023 - <?= setting('App.nama_sekolah') ?></div>
     </div>
   </footer>
   <!-- Bootstrap core JS-->

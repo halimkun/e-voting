@@ -3,8 +3,8 @@
 <header class="masthead" style='background: linear-gradient(to bottom, rgba(4, 33, 76, 0.38) 0%, rgba(4, 33, 76, 0.75) 100%), url("https://smankesesi.sch.id/wp-content/uploads/2022/05/IMG_20220512_092459-scaled.jpg"); background-position: center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;'>
   <div class="container px-4 px-lg-5 h-100">
     <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-      <div class="col-lg-8 align-self-end">
-        <h1 class="text-white font-weight-bold">OSIS SMA N 1 KESESI</h1>
+      <div class="col-lg-10 align-self-end">
+        <h1 class="text-white font-weight-bold">OSIS <?= setting('App.nama_sekolah') ?></h1>
       </div>
       <div class="col-lg-8 align-self-baseline">
         <p class="text-white mb-5">Selamat datang di website resmi Organisasi Siswa Intra Sekolah & Majelis Perwakilan Kelas SMA Negri 1 Kesesi</p>
@@ -18,8 +18,8 @@
   <div class="container px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-lg-10 text-center">
-        <h2 class="text-white mt-0 mb-3">Organisasi Siswa Intra Sekolah </h2>
-        <p class="text-white-75 mb-4"><strong>Organisasi Siswa Intra Sekolah (OSIS)</strong> adalah mikro dari makro sistem pemerintahan Indonesia di sekolah, tepatnya berperan sebagai lembaga eksekutif, yang bersinergi dengan organisasi Perwakilan Kelas sebagai lembaga legislatif dan yudikatif, serta sekolah sebagai pembina.</p>
+        <h2 class="text-white mt-0 mb-3"><?= setting('App.about_title') ?> </h2>
+        <p class="text-white-75 mb-4"><?= htmlspecialchars_decode(setting('App.about_sekolah')) ?></p>
       </div>
     </div>
   </div>

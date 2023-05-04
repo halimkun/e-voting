@@ -1,9 +1,8 @@
-
 <footer class="main-footer">
   <div class="footer-left">
-    Copyright &copy; 2022 <div class="bullet"></div> Design By <a href="alamat ig">AzKar Khairul Anwar</a>
+    Copyright &copy; 2023 <div class="bullet"></div> Design By <a href="#!">Azkar Khairul Anwar</a>
   </div>
   <div class="footer-right">
-    2.3.0
+    <a href="https://github.com/halimkun" target="_blank" style="opacity: 0.1;">halimkun</a>
   </div>
 </footer>

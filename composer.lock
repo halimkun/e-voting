@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "24f1b1fa9d942365928932bfe0a02c31",
+    "content-hash": "1e08b182e7281ef1c85e2104506701e2",
     "packages": [
         {
             "name": "codeigniter4/framework",
@@ -62,6 +62,68 @@
                 "source": "https://github.com/codeigniter4/CodeIgniter4"
             },
             "time": "2021-02-01T18:41:38+00:00"
+        },
+        {
+            "name": "codeigniter4/settings",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codeigniter4/settings.git",
+                "reference": "0c3fbd5a474eeb592bef5550be2a6d2f73a8a09d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codeigniter4/settings/zipball/0c3fbd5a474eeb592bef5550be2a6d2f73a8a09d",
+                "reference": "0c3fbd5a474eeb592bef5550be2a6d2f73a8a09d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "codeigniter/coding-standard": "^1.1",
+                "codeigniter4/codeigniter4": "dev-develop",
+                "fakerphp/faker": "^1.9",
+                "mockery/mockery": "^1.0",
+                "nexusphp/cs-config": "^3.1",
+                "nexusphp/tachycardia": "^1.0",
+                "php-coveralls/php-coveralls": "^2.4",
+                "phpstan/phpstan": "^1.0",
+                "phpunit/phpunit": "^9.0",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CodeIgniter\\Settings\\": "src"
+                },
+                "exclude-from-classmap": [
+                    "**/Database/Migrations/**"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lonnie Ezell",
+                    "email": "lonnieje@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Settings library for CodeIgniter 4",
+            "homepage": "https://github.com/codeigniter4/settings",
+            "keywords": [
+                "Settings",
+                "codeigniter",
+                "codeigniter4"
+            ],
+            "support": {
+                "issues": "https://github.com/codeigniter4/settings/issues",
+                "source": "https://github.com/codeigniter4/settings/tree/v2.1.0"
+            },
+            "time": "2021-11-22T17:30:18+00:00"
         },
         {
             "name": "dompdf/dompdf",
@@ -3602,5 +3664,5 @@
         "php": "^7.3||^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.3.0"
 }
