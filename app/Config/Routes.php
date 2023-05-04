@@ -67,6 +67,8 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
    $routes->get('laporan/kandidat', 'LaporanKandidat');
    $routes->get('laporan/peserta', 'LaporanPeserta');
    $routes->get('laporan/hasil', 'LaporanHasil');
+   $routes->get('files', 'Webfile');
+   $routes->get('dokumen/delete/(:num)', 'Webfile::delete/$1');
    $routes->get('profile', 'Profile');
    $routes->get('setting', 'Pengaturan');
    
@@ -83,6 +85,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
    $routes->post('cetakPdf/hasil', 'LaporanHasil::cetakPdf');
    $routes->post('editProfile/profile', 'Profile::editProfile');
    $routes->post('editProfile/password', 'Profile::editPassword');
+   $routes->post('dokumen/save', 'Webfile::save');
    $routes->post('setting/edit', 'Pengaturan::edit');
    $routes->post('setting/about/update', 'Pengaturan::about_update');
    
