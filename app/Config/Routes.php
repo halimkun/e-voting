@@ -67,11 +67,15 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
    $routes->get('laporan/kandidat', 'LaporanKandidat');
    $routes->get('laporan/peserta', 'LaporanPeserta');
    $routes->get('laporan/hasil', 'LaporanHasil');
+   $routes->get('info', 'Info');
+   $routes->get('info/(:num)', 'Info/$1');
+   $routes->get('info/delete/(:num)', 'Info::delete/$1');
    $routes->get('files', 'Webfile');
    $routes->get('dokumen/delete/(:num)', 'Webfile::delete/$1');
    $routes->get('profile', 'Profile');
    $routes->get('setting', 'Pengaturan');
    
+   $routes->get('informasi/summernote/delete', 'Info::summernote_delete');
    // post routes
    $routes->post('kandidat/add', 'Kandidat::add');
    $routes->post('kandidat/update/(:any)', 'Kandidat::update/$1');
@@ -88,6 +92,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
    $routes->post('dokumen/save', 'Webfile::save');
    $routes->post('setting/edit', 'Pengaturan::edit');
    $routes->post('setting/about/update', 'Pengaturan::about_update');
+   $routes->post('info/save', 'Info::save');
+   $routes->post('informasi/summernote/upload', 'Info::summernote_upload');
+   $routes->post('informasi/summernote/delete', 'Info::summernote_delete');
    
    // delete routes
    $routes->delete('kandidat/hapus/(:any)', 'Kandidat::hapus/$1');
