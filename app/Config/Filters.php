@@ -35,11 +35,11 @@ class Filters extends BaseConfig
 	 */
 	public $globals = [
 		'before' => [
-			// 'honeypot',
-		  'csrf',
+			'honeypot',
+			// 'csrf',
 		],
 		'after'  => [
-		  // 'toolbar',
+			// 'toolbar',
 			// 'honeypot',
 		],
 	];
@@ -65,8 +65,8 @@ class Filters extends BaseConfig
 	 * @var array
 	 */
 	public $filters = [
-	    'loginAdmin' => ['before' => ['admin', 'admin/*']],
-	    'loginPeserta' => ['before' => ['pilih/', 'loginPeserta/getOneData/']],
-	    'login' => ['before' => ['login/', 'login/admin/', 'cekLogin/', 'cekLoginAdmin/', '/']]
-	  ];
+		'loginAdmin' => ['before' => ['admin', 'admin/*']],
+		'loginPeserta' => ['before' => ['pilih/', 'loginPeserta/getOneData/']],
+		'login' => ['before' => ['login/', 'login/admin/', 'cekLogin/', 'cekLoginAdmin/', '/']]
+	];
 }
