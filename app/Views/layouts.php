@@ -18,6 +18,10 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
   <!-- Core theme CSS (includes Bootstrap)-->
   <link href="/css/front.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="<?= base_url('/fontawesome/css/all.min.css'); ?>" type="text/css" media="all" />
+
+  <?= $this->renderSection('script_css') ;?>
 </head>
 
 <body id="page-top">
@@ -49,17 +53,13 @@
       <div class="small text-center text-muted">Copyright &copy; 2023 - <?= setting('App.nama_sekolah') ?></div>
     </div>
   </footer>
+  <script src="<?= base_url(); ?>/js/jquery.min.js"></script>
   <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- SimpleLightbox plugin JS-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-  <!-- Core theme JS-->
-  <script src="js/scripts.js"></script>
-  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-  <!-- * *                               SB Forms JS                               * *-->
-  <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-  <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+  
+  <?= $this->renderSection('script_js'); ?>
 </body>
 
 </html>
