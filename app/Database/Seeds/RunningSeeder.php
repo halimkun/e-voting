@@ -13,5 +13,6 @@ class RunningSeeder extends Seeder
 		$this->call('GeneralSeeder');
 		$this->call('PesertaSeeder');
 		$this->call('SettingsSeeder');
+		$this->call('AnggotaSeeder');
 	}
 }

@@ -72,10 +72,12 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
    $routes->get('info/delete/(:num)', 'Info::delete/$1');
    $routes->get('files', 'Webfile');
    $routes->get('dokumen/delete/(:num)', 'Webfile::delete/$1');
+   $routes->get('anggota', 'Anggota');
    $routes->get('profile', 'Profile');
    $routes->get('setting', 'Pengaturan');
    
    $routes->get('informasi/summernote/delete', 'Info::summernote_delete');
+
    // post routes
    $routes->post('kandidat/add', 'Kandidat::add');
    $routes->post('kandidat/update/(:any)', 'Kandidat::update/$1');
@@ -93,6 +95,8 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
    $routes->post('setting/edit', 'Pengaturan::edit');
    $routes->post('setting/about/update', 'Pengaturan::about_update');
    $routes->post('info/save', 'Info::save');
+   $routes->post('anggota/save', 'Anggota::save');
+
    $routes->post('informasi/summernote/upload', 'Info::summernote_upload');
    $routes->post('informasi/summernote/delete', 'Info::summernote_delete');
    
