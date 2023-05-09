@@ -11,9 +11,8 @@ class Home extends BaseController
 	protected $webFile;
 	protected $colCondition;
 
-	public function __construct() {
-		$this->anggota = new \App\Models\AnggotaModel();
-		$this->webFile = new \App\Models\WebfileModel();
+	public function __construct()
+	{
 		$this->anggota 		= new \App\Models\AnggotaModel();
 		$this->webFile 		= new \App\Models\WebfileModel();
 		$this->informasi 	= new \App\Models\InfoModel();
@@ -85,7 +84,6 @@ class Home extends BaseController
 
 	public function anggota()
 	{
-		$anggota = $this->removeEmptName($this->anggota->findAll());		
 		$anggota = $this->removeEmptName($this->anggota->findAll());
 		$anggota = array_map(
 			function ($anggota) {
