@@ -42,6 +42,41 @@ class Home extends BaseController
 		]);
 	}
 
+	function informasi()
+	{
+		return view('informasi', [
+			'informasi' => $this->informasi->findAll()
+		]);
+	}
+
+	public function informasi_detail($num)
+	{
+		$img_src = [];
+		$img_avaiable = true;
+		$info = $this->informasi->find($num);
+
+		$dom = new \DOMDocument();
+		$dom->loadHTML($info['isi']);
+
+		$image_tags = $dom->getElementsByTagName('img');
+
+		foreach ($image_tags as $image_tag) {
+			$img_src[] = $image_tag->getAttribute('src');
+		}
+
+		// if empty img_src
+		if (empty($img_src)) {
+			$img_src[] = 'https://www.charlotteathleticclub.com/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png';
+			$img_avaiable = false;
+		}
+
+		return view('informasi_detail', [
+			'info' => $info,
+			'img_src' => $img_src[0],
+			'img_avaiable' => $img_avaiable
+		]);
+	}
+
 	public function anggota()
 	{
 		$anggota = $this->removeEmptName($this->anggota->findAll());		
