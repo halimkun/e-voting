@@ -1,16 +1,22 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\CobaModel;
+
 class Home extends BaseController
 {
 	protected $anggota;
+	protected $informasi;
 	protected $webFile;
 	protected $colCondition;
 
 	public function __construct() {
 		$this->anggota = new \App\Models\AnggotaModel();
 		$this->webFile = new \App\Models\WebfileModel();
+		$this->anggota 		= new \App\Models\AnggotaModel();
+		$this->webFile 		= new \App\Models\WebfileModel();
+		$this->informasi 	= new \App\Models\InfoModel();
 		$this->colCondition = [
 			'Sekretaris',
 			'Sekretaris 2',
@@ -80,6 +86,7 @@ class Home extends BaseController
 	public function anggota()
 	{
 		$anggota = $this->removeEmptName($this->anggota->findAll());		
+		$anggota = $this->removeEmptName($this->anggota->findAll());
 		$anggota = array_map(
 			function ($anggota) {
 				$temp = [

@@ -36,6 +36,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/anggota', 'Home::anggota');
 $routes->get('/download', 'Home::Download');
+$routes->get('/download', 'Home::download');
 $routes->get('/informasi', 'Home::informasi');
 $routes->get('/informasi/(:num)', 'Home::informasi_detail/$1');
 
