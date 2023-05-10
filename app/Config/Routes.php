@@ -35,7 +35,7 @@ $routes->setAutoRoute(false);
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/anggota', 'Home::anggota');
-$routes->get('/download', 'Home::Download');
+$routes->get('/agenda/(:num)', 'Home::agenda/$1');
 $routes->get('/download', 'Home::download');
 $routes->get('/informasi', 'Home::informasi');
 $routes->get('/informasi/(:num)', 'Home::informasi_detail/$1');
@@ -75,6 +75,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
    $routes->get('info', 'Info');
    $routes->get('info/(:num)', 'Info/$1');
    $routes->get('info/delete/(:num)', 'Info::delete/$1');
+   $routes->get('agenda', 'Agenda');
+   $routes->get('agenda/(:num)', 'Agenda::index/$1');
+   $routes->get('agenda/delete/(:num)', 'Agenda::delete/$1');
    $routes->get('files', 'Webfile');
    $routes->get('dokumen/delete/(:num)', 'Webfile::delete/$1');
    $routes->get('anggota', 'Anggota');
@@ -101,6 +104,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
    $routes->post('setting/about/update', 'Pengaturan::about_update');
    $routes->post('info/save', 'Info::save');
    $routes->post('anggota/save', 'Anggota::save');
+   $routes->post('agenda/save', 'Agenda::save');
 
    $routes->post('informasi/summernote/upload', 'Info::summernote_upload');
    $routes->post('informasi/summernote/delete', 'Info::summernote_delete');

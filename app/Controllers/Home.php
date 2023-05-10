@@ -7,6 +7,7 @@ use App\Models\CobaModel;
 class Home extends BaseController
 {
 	protected $anggota;
+	protected $agenda;
 	protected $informasi;
 	protected $webFile;
 	protected $colCondition;
@@ -14,6 +15,7 @@ class Home extends BaseController
 	public function __construct()
 	{
 		$this->anggota 		= new \App\Models\AnggotaModel();
+		$this->agenda 		= new \App\Models\AgendaModel();
 		$this->webFile 		= new \App\Models\WebfileModel();
 		$this->informasi 	= new \App\Models\InfoModel();
 		$this->colCondition = [
@@ -32,12 +34,22 @@ class Home extends BaseController
 
 	public function index()
 	{
-		return view('home');
+		return view('home', [
+			'agenda' => $this->agenda->orderBy('created_at', 'desc')->findAll(6),
+		]);
 	}
 
 	public function about()
 	{
 		return view('about');
+	}
+
+	function agenda($id)
+	{
+		$agenda = $this->agenda->find($id);
+		return view('agenda', [
+			'agenda' => $agenda
+		]);
 	}
 
 	public function download()
@@ -69,7 +81,6 @@ class Home extends BaseController
 			$img_src[] = $image_tag->getAttribute('src');
 		}
 
-		// if empty img_src
 		if (empty($img_src)) {
 			$img_src[] = 'https://www.charlotteathleticclub.com/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png';
 			$img_avaiable = false;

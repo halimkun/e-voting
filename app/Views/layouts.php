@@ -34,6 +34,7 @@
         <ul class="navbar-nav text-uppercase ms-auto my-2 my-lg-0">
           <li class="nav-item"><a class="nav-link text-white" href="/#page-top">Home</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="/#about">About</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="/#agenda">Agenda</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="/anggota">Anggota</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="/informasi">Informasi</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="/download">Download</a></li>

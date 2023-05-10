@@ -32,72 +32,31 @@
 <!-- TODO : Berita Terbaru -->
 
 <!-- Portfolio-->
-<section class="bg-light">
+<section class="bg-light" id="agenda">
   <div class="container px-4 py-5 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-lg-10 text-center">
-        <h2 class="mt-3">TODO : Change title and content</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere illum provident atque fuga eum libero doloremque adipisci odit? Ex, autem.</p>
+        <h2 class="mt-3">AGENDA KEGIATAN <?= htmlspecialchars_decode(setting('App.nama_sekolah')) ?></h2>
+        <p>
+          berikut ini adalah agenda kegiatan yang akan dilaksanakan oleh OSIS <?= setting('App.nama_sekolah') ?>. 
+        </p>
       </div>
     </div>
   </div>
   <div id="portfolio" class="mb-1">
     <div class="container-fluid p-0">
       <div class="row g-0">
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="https://smankesesi.sch.id/wp-content/uploads/2022/02/WhatsApp-Image-2022-01-21-at-11.01.08.jpeg" title="Project Name">
-            <img class="img-fluid" style="width: 100%; height: 300px; object-fit: cover; object-position: center;" src="https://smankesesi.sch.id/wp-content/uploads/2022/02/WhatsApp-Image-2022-01-21-at-11.01.08.jpeg" alt="..." />
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">Category</div>
-              <div class="project-name">Project Name</div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="https://smankesesi.sch.id/wp-content/uploads/2022/03/IMG_20220328_131232-576x1024.jpg" title="Project Name">
-            <img class="img-fluid" style="width: 100%; height: 300px; object-fit: cover; object-position: center;" src="https://smankesesi.sch.id/wp-content/uploads/2022/03/IMG_20220328_131232-576x1024.jpg" alt="..." />
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">Category</div>
-              <div class="project-name">Project Name</div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="https://smankesesi.sch.id/wp-content/uploads/2022/02/WhatsApp-Image-2022-01-21-at-11.01.08.jpeg" title="Project Name">
-            <img class="img-fluid" style="width: 100%; height: 300px; object-fit: cover; object-position: center;" src="https://smankesesi.sch.id/wp-content/uploads/2022/02/WhatsApp-Image-2022-01-21-at-11.01.08.jpeg" alt="..." />
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">Category</div>
-              <div class="project-name">Project Name</div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="https://smankesesi.sch.id/wp-content/uploads/2022/03/IMG_20220328_131232-576x1024.jpg" title="Project Name">
-            <img class="img-fluid" style="width: 100%; height: 300px; object-fit: cover; object-position: center;" src="https://smankesesi.sch.id/wp-content/uploads/2022/03/IMG_20220328_131232-576x1024.jpg" alt="..." />
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">Category</div>
-              <div class="project-name">Project Name</div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="https://smankesesi.sch.id/wp-content/uploads/2022/02/WhatsApp-Image-2022-01-21-at-11.01.08.jpeg" title="Project Name">
-            <img class="img-fluid" style="width: 100%; height: 300px; object-fit: cover; object-position: center;" src="https://smankesesi.sch.id/wp-content/uploads/2022/02/WhatsApp-Image-2022-01-21-at-11.01.08.jpeg" alt="..." />
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">Category</div>
-              <div class="project-name">Project Name</div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="https://smankesesi.sch.id/wp-content/uploads/2022/03/IMG_20220328_131232-576x1024.jpg" title="Project Name">
-            <img class="img-fluid" style="width: 100%; height: 300px; object-fit: cover; object-position: center;" src="https://smankesesi.sch.id/wp-content/uploads/2022/03/IMG_20220328_131232-576x1024.jpg" alt="..." />
-            <div class="portfolio-box-caption p-3">
-              <div class="project-category text-white-50">Category</div>
-              <div class="project-name">Project Name</div>
-            </div>
-          </a>
-        </div>
+        <?php foreach ($agenda as $a) : ?>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="/agenda/<?= $a['id'] ?>" title="Project Name">
+              <img class="img-fluid" style="width: 100%; height: 300px; object-fit: cover; object-position: center;" src="/files/agenda/<?= $a['foto'] ?>" alt="..." />
+              <div class="portfolio-box-caption">
+                <div class="project-category text-white-50">Agenda</div>
+                <div class="project-name"><?= $a['acara'] ?></div>
+              </div>
+            </a>
+          </div>
+        <?php endforeach ?>
       </div>
     </div>
   </div>
