@@ -3,7 +3,7 @@
 <section class="section">
   <div class="section-header">
     <h1>
-      Laporan Hasil Voting
+      Anggota Aktif
     </h1>
   </div>
   <div class="section-body">

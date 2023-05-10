@@ -30,7 +30,7 @@
                   <?php foreach ($info as $i) : ?>
                     <tr>
                       <td><?= $no++ ?></td>
-                      <td><?= $i['judul'] ?></td>
+                      <td><a href="/informasi/<?= $i['id'] ?>" style="text-transform: capitalize !important;" target="_blank"><?= strtolower($i['judul']) ?></a></td>
                       <td><?= $i['updated_at'] ?></td>
                       <td>
                         <a href="/admin/info/<?= $i['id'] ?>" class="btn btn-sm btn-icon btn-primary"><i class="fa fa-pen"></i></a>

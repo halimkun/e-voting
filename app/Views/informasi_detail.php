@@ -32,7 +32,6 @@
 <script>
   $(document).ready(function() {
     $('img').addClass('img-fluid');
-    $('img').parent().addClass('d-none');
   });
 </script>
 <?= $this->endSection(); ?>
