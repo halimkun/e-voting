@@ -58,11 +58,17 @@ class Info extends BaseController
 			return redirect()->back()->withInput();
 		}
 
+		if (isset($data['id'])) {
+			$ket = 'diubah!!';
+		} else {
+			$ket = 'ditambahkan!!';
+		}
+
 		if ($this->info->save($data)) {
-			setFlasher('Selamat!!', 'success', 'Berita-berhasil-' . isset($data['id']) ? 'diubah' : 'ditambahkan' . '!!');
+			setFlasher('Selamat!!', 'success', 'Berita-berhasil-'.$ket);
 			return redirect()->to('/admin/info');
 		} else {
-			setFlasher('Mohon Maaf!!', 'error', 'Berita-gagal-' . isset($data['id']) ? 'diubah' : 'ditambahkan' . '!!');
+			setFlasher('Mohon Maaf!!', 'error', 'Berita-gagal-'.$ket);
 			return redirect()->back()->withInput();
 		}
 	}

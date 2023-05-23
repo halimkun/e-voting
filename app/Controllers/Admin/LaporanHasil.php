@@ -42,12 +42,14 @@ class LaporanHasil extends BaseController
 	    'peserta_tidak_memilih' => $modelPeserta->getTotal(false)
 	  ];
 	  
-	  $dompdf = new Dompdf();
-	  $dompdf->loadHtml(view('admin/view_cetak/hasilPdf', $data));
-	  $dompdf->setPaper('A4', 'portrait');
-	  $dompdf->render();
-	  $dompdf->stream('laporan_hasil_voting.pdf');
 	  
+	  return view('admin/view_cetak/hasilPdf', $data);
+
+	//   $dompdf = new Dompdf();
+	//   $dompdf->loadHtml(view('admin/view_cetak/hasilPdf', $data));
+	//   $dompdf->setPaper('A4', 'portrait');
+	//   $dompdf->render();
+	//   $dompdf->stream('laporan_hasil_voting.pdf', ['Attachment' => false]);
 	}
 	
 }

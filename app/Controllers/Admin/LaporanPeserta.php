@@ -62,15 +62,18 @@ class LaporanPeserta extends BaseController
 	    'jurusan' => $jurusan
 	  ];
 	  $dompdf = new Dompdf();
-    $dompdf->loadHtml(view('admin/view_cetak/pesertaPdf', $data));
-    // (Optional) Setup the paper size and orientation
-    $dompdf->setPaper('A4', 'portrait');
+
+	  return view('admin/view_cetak/pesertaPdf', $data);
+
+    // $dompdf->loadHtml(view('admin/view_cetak/pesertaPdf', $data));
+    // // (Optional) Setup the paper size and orientation
+    // $dompdf->setPaper('A4', 'portrait');
     
-    // Render the HTML as PDF
-    $dompdf->render();
+    // // Render the HTML as PDF
+    // $dompdf->render();
     
-    // Output the generated PDF to Browser
-    $dompdf->stream($nama_file . '.pdf');
+    // // Output the generated PDF to Browser
+    // $dompdf->stream($nama_file . '.pdf');
 	  
 	}
 	

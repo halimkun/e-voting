@@ -71,15 +71,20 @@ class Agenda extends BaseController
 			return redirect()->back()->withInput();
 		}
 
+		if (isset($data['id'])) {
+			$ket = 'diubah!!';
+		} else {
+			$ket = 'ditambahkan!!';
+		}
+
 		if ($this->agenda->save($data)) {
 			if ($file->getError() == 0) {
 				$file->move('files/agenda', $fname);
 			}
-
-			setFlasher('Selamat!!', 'success', 'Data-berhasil-ditambahkan!!');
+			setFlasher('Selamat!!', 'success', 'Data-berhasil-'.$ket);
 			return redirect()->to(base_url('/admin/agenda'));
 		} else {
-			setFlasher('Mohon Maaf!!', 'danger', 'Data-gagal-ditambahkan!!');
+			setFlasher('Mohon Maaf!!', 'danger', 'Data-gagal-'.$ket);
 			return redirect()->to(base_url('/admin/agenda'));
 		}
 	}
