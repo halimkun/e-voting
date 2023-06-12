@@ -20,13 +20,13 @@
             Selamat Datang di <br/>Sistem Informasi Dan Pemilihan Ketua OSIS
           </h4>
           <h1>
-            <?= $nama_sekolah; ?>
+            <?= setting('App.nama_sekolah') ?>
           </h1>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-12 col-md-4 p-0 d-flex justify-content-center align-items-center">
-          <img src="<?= base_url(); ?>/img/<?= $logo_sekolah; ?>" alt="" class="img-fluid">
+          <img src="<?= base_url(); ?>/img/<?= setting('App.logo_sekolah') ?>" alt="" class="img-fluid">
         </div>
         <div class="col-sm-12 col-md-8">
           <?php if (session()->getFlashdata('info-login')) : ?>

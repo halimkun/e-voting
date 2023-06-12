@@ -18,7 +18,7 @@
   <div class="container px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-lg-10 text-center">
-        <h2 class="text-white mt-0 mb-3"><?= setting('App.about_title') ?> </h2>
+        <h2 class="text-white mt-0 mb-3"><?= setting('App.about_title') ?></h2>
         <p class="text-white-75 mb-4"><?= htmlspecialchars_decode(setting('App.about_sekolah')) ?></p>
       </div>
     </div>

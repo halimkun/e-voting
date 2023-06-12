@@ -51,6 +51,13 @@ class SettingsSeeder extends Seeder
 				'type'		=> 'string',
 				'context'	=> null
 			],
+			[
+				'class'		=> 'Config\App',
+				'key'		=> 'status_acara',
+				'value'		=> 0,
+				'type'		=> 'integer',
+				'context'	=> null
+			],
 		];
 		$db = \Config\Database::connect();
 		$db->table('settings')->insertBatch($data);

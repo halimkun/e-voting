@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\CandidateModel;
-use App\Models\GeneralModel;
 use App\Models\HasilModel;
 use App\Models\PesertaModel;
 
@@ -12,14 +11,12 @@ use App\Models\PesertaModel;
 class Pilih extends BaseController
 {
   private $candidateModel;
-  private $generalModel;
   private $hasilModel;
   private $pesertaModel;
   
   public function __construct()
   {
     $this->candidateModel = new CandidateModel();
-    $this->generalModel = new GeneralModel();
     $this->hasilModel = new HasilModel();
     $this->pesertaModel = new PesertaModel();
   }
@@ -28,8 +25,8 @@ class Pilih extends BaseController
 	{
 		$data = [
 		  'dt_kandidat' => $this->candidateModel->orderBy('no_urut', 'ASC')->findAll(),
-		  'general' => $this->generalModel->first()
 		];
+		
 		return view('pemilihan/index', $data);
 	}
 	

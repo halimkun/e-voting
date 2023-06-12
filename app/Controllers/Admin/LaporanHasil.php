@@ -5,7 +5,6 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\CandidateModel;
 use App\Models\PesertaModel;
-use App\Models\GeneralModel;
 use Dompdf\Dompdf;
 
 class LaporanHasil extends BaseController
@@ -24,11 +23,8 @@ class LaporanHasil extends BaseController
 	{
 	  $modelCandidat = new CandidateModel();
 	  $modelPeserta = new PesertaModel();
-	  $modelGeneral = new GeneralModel();
 	  
-	  $status_acara = $modelGeneral->getData('status_acara');
-	  
-	  if($status_acara != "2"){
+	  if(setting("App.status_acara") != "2"){
 	    session()->setFlashdata('info-cetak-hasil', 'Oupss.. namapknya acara belum selesai,, Mohon Tunggu acara selesai dulu!!');
 	    return redirect()->to(base_url('admin/laporan/hasil'));
 	  }

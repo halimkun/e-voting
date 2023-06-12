@@ -32,7 +32,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="morgLabel">Modal title</h5>
+        <h5 class="modal-title" id="morgLabel">Edit Anggota Aktif</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -42,7 +42,13 @@
           <div class="row">
           <?php foreach ($fields as $field) : ?>
               <div class="form-group <?= in_array($field['jabatan'], $colCondition) ? 'col-12 col-md-6' : 'col-12' ?>">
-                <label for="nama" class="form-label mb-1">Nama <?= $field['jabatan'] ?></label>
+                <label for="nama" class="form-label mb-1">
+                  <?php if(str_contains(strtolower($field['jabatan']), 'komisi')) : ?>
+                    Nama <?= preg_replace('/[0-9]+/', '', $field['jabatan']) ?>
+                  <?php else : ?>
+                    Nama <?= $field['jabatan'] ?>
+                  <?php endif; ?>
+                </label>
                 <input type="text" name="<?= str_replace(" ", "_", $field['jabatan']) ?>" id="nama" value="<?= $field['nama'] ?>" class="form-control">
               </div>
               <?php endforeach ?>

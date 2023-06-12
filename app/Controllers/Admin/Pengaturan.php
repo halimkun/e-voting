@@ -3,15 +3,11 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
-use App\Models\GeneralModel;
 
 class Pengaturan extends BaseController
 {
-	private $GeneralModel;
-
 	public function __construct()
 	{
-		$this->GeneralModel = new GeneralModel();
 		helper('Flasher');
 	}
 
@@ -23,7 +19,6 @@ class Pengaturan extends BaseController
 			'act' 			=> 'setting',
 			'css' 			=> ['sweetalert/sweetalert2.min'],
 			'js' 			=> ['js/img_preview', 'sweetalert/sweetalert2.all.min', 'js/flasher'],
-			'data_sekolah' 	=> $this->GeneralModel->first(),
 			'validation' 	=> $validation
 		];
 

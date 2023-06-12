@@ -5,18 +5,16 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\AdminModel;
 use App\Models\PesertaModel;
-use App\Models\GeneralModel;
 
 class Login extends BaseController
 {
 	public function index()
 	{
-		$GeneralModel = new GeneralModel();
 		$validation =  \Config\Services::validation();
 		$data = [
 			'validation' => $validation,
-			'nama_sekolah' => $GeneralModel->first()['nama_sekolah'],
-			'logo_sekolah' => $GeneralModel->first()['logo_sekolah'],
+			'nama_sekolah' => setting('App.nama_sekolah'),
+			'logo_sekolah' => setting('App.logo_sekolah'),
 		];
 		return view('login/peserta', $data);
 	}
@@ -31,7 +29,6 @@ class Login extends BaseController
 	public function cekLoginPeserta()
 	{
 		$PesertaModel = new PesertaModel();
-		$GeneralModel = new GeneralModel();
 		$username = $this->request->getPost('username');
 		$password = $this->request->getPost('password');
 
@@ -68,7 +65,7 @@ class Login extends BaseController
 		}
 
 		// cek status acara
-		$status_acara = $GeneralModel->first()["status_acara"];
+		$status_acara = setting('App.status_acara');
 		if ($status_acara == 0) {
 			session()->setFlashdata('info-login', ['alert-warning', 'Acara belum dimulai,, mohon untuk tunggu sebentar!!']);
 			return redirect()->to(base_url('login'))->withInput();

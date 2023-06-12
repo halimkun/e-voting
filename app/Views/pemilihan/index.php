@@ -27,7 +27,7 @@
   
   <nav class="navbar fixed-top pb-0 bg-light">
     <h2 class="nav-brand">
-      <?= $general['nama_sekolah']; ?>
+      <?= setting('App.nama_sekolah') ?>
     </h2>
     
     <div class="nav-info" id="info-nama-peserta">
@@ -42,43 +42,28 @@
   </nav>
   
   <div class="wadah">
-    <div class="row text-center info">
+    <!-- <div class="row text-center info">
       <div class="col">
         <h6 class="mb-0" >
           Selamat Datang Di Pilketos
         </h6>
         <p>
-          SMA NEGERI 1 KESESI
+          <?= setting('App.nama_sekolah') ?>
         </p>
       </div>
-    </div>
+    </div> -->
     
     <div class="row kotak-pilih">
       <div class="col-12 d-flex justify-content-center">
         <?php foreach($dt_kandidat as $dt) : ?>
         <div class="kotak-pilih-satuan mx-2  shadow border">
           <div class="card w-100 border-0">
-            <div class="card-header text-center bg-white">
-              <h2>
-                <?= $dt->no_urut; ?>
-              </h2>
-            </div>
-            <img src="img/candidate/<?= $dt->foto; ?>" class="card-img-top" alt="foto kandidat">
             <div class="card-body">
-              <h5 class="card-title text-center mb-0">
-                <?= $dt->ketua; ?>
-              </h5>
-              <h5 class="card-title text-center mb-0">
-                &
-              </h5>
-              <h5 class="card-title text-center">
-                <?= $dt->wakil; ?>
-              </h5>
-              <p class="text-center">
-                <i>
-                  "<?= $dt->slogan; ?>"
-                </i>
-              </p>
+              <h2 class="text-center"><?= $dt->no_urut; ?></h2>
+              <div class="text-center"><img src="img/candidate/<?= $dt->foto; ?>" class="card-img-top img-fluid" style="width:75%;" alt="foto kandidat"></div>
+              <h5 class="card-title text-center mt-3 mb-0"><strong><?= $dt->ketua; ?></strong> & <strong><?= $dt->wakil ?></strong></h5>
+              <p class="text-center px-4"><i>"<?= $dt->slogan; ?>"</i></p>
+
               <div class="">
                 <button type="button" class="btn btn-success btnView" data-toggle="modal" data-target="#exampleModal" data-href="<?= base_url(); ?>/pilih/getOneData/<?= $dt->id_candidate; ?>" data-id="1">
                   <i class="fas fa-eye"></i>
@@ -87,6 +72,7 @@
                   Pilih
                 </button>
               </div>
+
             </div>
           </div>
         </div>
@@ -119,7 +105,7 @@
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">
@@ -131,45 +117,44 @@
         </div>
         <div class="modal-body">
           <div class="row mb-2">
-            <div class="col-12">
-              <img src="img/candidate1.jpg" alt="" class="img-thumbnail" id="foto_kandidat" data-srcImage="<?= base_url(); ?>/img/candidate/">
+            <div class="col-12 col-md-6">
+              <img src="img/candidate1.jpg" alt="" class="img-fluid" id="foto_kandidat" data-srcImage="<?= base_url(); ?>/img/candidate/">
             </div>
-          </div>
-          <div class="row mb-1">
-            <div class="col-12">
-              <h5>
-                Nama Ketua : <span id="ketua">BUDI BUDIMAN</span>
-              </h5>
+            <div class="col-12 col-md-6">
+              <table class="table">
+                <tr>
+                  <th>Nama Ketua</th>
+                  <td><span id="ketua"></span></td>
+                </tr>
+                <tr>
+                  <th>Nama Ketua</th>
+                  <td><span id="wakil"></span></td>
+                </tr>
+                <tr>
+                  <th>Slogan</th>
+                  <td><span id="slogan"></span></td>
+                </tr>
+              </table>
             </div>
-            <div class="col-12">
-              <h5>
-                Nama Wakil : <span id="wakil">AGUS SANTOSO WIJAYA</span>
-              </h5>
+            <div class="col-12 col-md-6 mt-3">
+              <table class="table">
+                <tr>
+                  <th>Visi</th>
+                </tr>
+                <tr>
+                  <td><span id="visi"></span></td>
+                </tr>
+              </table>
             </div>
-            <div class="col-12">
-              <h5>
-                Slogan : <span id="slogan">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod consequuntur facere deleniti ut natus ipsa."</span>
-              </h5>
-            </div>
-            <div class="col-12 visi-misi">
-              <h5>Visi :</h5>
-              <span id="visi">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, hic!</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, hic!</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, hic!</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, hic!</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, hic!</p>
-              </span>
-            </div>
-            <div class="col-12 visi-misi mt-1">
-              <h5>Misi :</h5>
-              <span id="misi">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, hic!</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, hic!</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, hic!</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, hic!</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, hic!</p>
-              </span>
+            <div class="col-12 col-md-6 mt-3">
+              <table class="table">
+                <tr>
+                  <th>Misi</th>
+                </tr>
+                <tr>
+                  <td><span id="misi"></span></td>
+                </tr>
+              </table>
             </div>
           </div>
         </div>

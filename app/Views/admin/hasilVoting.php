@@ -1,7 +1,7 @@
 <?= $this->extend('template_admin/layout'); ?>
 
 <?= $this->section('content'); ?>
-<?php if($status_acara != 0) : ?>
+<?php if(setting('App.status_acara') != 0) : ?>
 <section class="section">
   <div class="section-header">
     <h1>
@@ -11,7 +11,7 @@
   
   <div class="section-body">
     <div class="row">
-      <div class="col-lg-4 col-md-4 col-12 col-sm-12">
+      <div class="col-12">
         <div class="card">
           <div class="card-header">
             <h4>
@@ -19,23 +19,19 @@
             </h4>
           </div>
           <div class="card-body pt-0">
-            <?php foreach($data_chart as $dt) : ?>
-             <div class="row mb-1">
-               <div class="col">
+            <div class="row mb-1">
+              <?php foreach($data_chart as $dt) : ?>
+               <div class="col-12 col-md-4">
                  <div class="card border">
-                   <div class="text-center p-1">
-                     <span class="badge  border">
-                       <?= $dt['no_urut']; ?>
-                     </span>
-                   </div>
-                   <img src="<?= base_url(); ?>/img/candidate/<?= $dt['foto']; ?>" class="card-img-top img-thumbnail border-0" alt="foto kandidat">
+                    <div class="text-center p-1">
+                      <span class="badge  border"><?= $dt['no_urut']; ?></span>
+                    </div>
+                    <div class="text-center">
+                      <img src="<?= base_url(); ?>/img/candidate/<?= $dt['foto']; ?>" class="card-img-top img-thumbnail border-0" style="width:75%;" alt="foto kandidat">
+                    </div>
                     <div class="card-body">
                       <div class="card-title text-center">
-                        <b><?= $dt['ketua']; ?></b>
-                        <br>
-                        &
-                        <br>
-                        <b><?= $dt['wakil']; ?></b>
+                        <h6><b><?= $dt['ketua']; ?></b> & <b><?= $dt['wakil']; ?></b></h6>
                       </div>
                       <div class="info-suara text-center">
                         <strong class="h5">
@@ -45,13 +41,13 @@
                     </div>
                  </div>
                </div>
-             </div>
-            <?php endforeach; ?>
+              <?php endforeach; ?>
+            </div>
           </div>
         </div>
       </div>
       
-      <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+      <div class="col-12">
         <div class="card">
           <div class="card-header">
             <h4>

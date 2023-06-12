@@ -82,9 +82,9 @@
               <b>Status</b>
             </div>
             <div class="col-md-8">
-              <?php if($status_acara == 0) : ?>
+              <?php if(setting('App.status_acara') == 0) : ?>
                Belum Dimulai
-              <?php elseif($status_acara == 1) : ?>
+              <?php elseif(setting('App.status_acara') == 1) : ?>
                Sedang Berlangsung
               <?php else : ?>
                Sudah Selesai
@@ -124,11 +124,11 @@
           </div>
 
           <div class="text-center pt-1 pb-1">
-            <?php if($status_acara == 0) : ?>
+            <?php if(setting('App.status_acara') == 0) : ?>
               <a href="<?= base_url(); ?>/admin/dashboard/editAcara/1" class="btn btn-success btn-lg btn-round" onclick="return confirm('Yakin ingin memulai acara??');">
                 Mulai Acara
               </a>
-            <?php elseif($status_acara == 1) : ?>
+            <?php elseif(setting('App.status_acara') == 1) : ?>
               <a href="<?= base_url(); ?>/admin/dashboard/editAcara/2" class="btn btn-warning btn-lg btn-round" onclick="return confirm('Yakin ingin menghentikan acara??');">
                 Berhentikan Acara
               </a>
@@ -146,7 +146,7 @@
         <div class="card-header">
           <h4>Statistik</h4>
         </div>
-        <?php if($status_acara != 0) : ?>
+        <?php if(setting('App.status_acara') != 0) : ?>
           <?php foreach($data_chart as $dt) : ?>
             <?php 
               if($total_suara_masuk == 0){

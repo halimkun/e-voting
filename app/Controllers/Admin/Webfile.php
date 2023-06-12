@@ -45,7 +45,7 @@ class Webfile extends BaseController
 
 
 		if ($file->getError() == 0) {
-			$rules['dokumen'] = 'uploaded[dokumen]|max_size[dokumen,10240]|mime_in[dokumen,image/png,image/jpg,image/jpeg,application/pdf]|is_image[dokumen]';
+			$rules['dokumen'] = 'uploaded[dokumen]|max_size[dokumen,10240]|mime_in[dokumen,image/png,image/jpg,image/jpeg,application/pdf]';
 		}
 
 		$data['file'] = $file->getRandomName();

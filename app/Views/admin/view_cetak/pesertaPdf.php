@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>Document</title>
 
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -21,10 +22,16 @@
     #pass, #username {
       font-family: 'Courier New', Courier, monospace;
     }
+
+    /* .clear force new page */
+    .clear {
+      page-break-after: always;
+      clear: both;
+    }
   </style>
 </head>
 
-<body>
+<body onload="print()">
   <!-- Heading -->
   <div class="text-center mt-4">
     <h1><b>DAFTAR PESERTA</b></h1>
@@ -37,7 +44,7 @@
   <div class="row mt-5">
     <?php for ($i = 1; $i <= count($data_peserta); $i++) : ?>
       <?php $in = $i - 1; ?>
-      <div class="col-4">
+      <div class="col-6">
         <div class="card card-body mb-3" style="min-height: 150px; border: 3px solid #333;">
           <table class="table table-sm table-borderless table-striped m-0">
             <tr>
@@ -68,8 +75,8 @@
           </table>
         </div>
       </div>
-      <?php if ($i % 3 == 0) : ?>
-        <div class="clear" style="clear:left"></div>
+      <?php if ($i % 12 == 0) : ?>
+        <div class="clear"></div>
       <?php endif; ?>
     <?php endfor; ?>
   </div>

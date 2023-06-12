@@ -48,15 +48,15 @@ class PesertaModel extends Model
 	{
 	  if($kelas == ""){
 	    if($jurusan == ""){
-	      return $this->orderBy('nama', 'ASC')->findAll();
+	      return $this->orderBy('kelas', 'ASC')->findAll();
 	    }else{
-	      return $this->where('jurusan', $jurusan)->orderBy('nama', 'ASC')->findAll();
+	      return $this->where('jurusan', $jurusan)->orderBy('kelas', 'ASC')->findAll();
 	    }
 	  }else{
 	    if($jurusan == ""){
-	      return $this->where('kelas', $kelas)->orderBy('nama', 'ASC')->findAll();
+	      return $this->where('kelas', $kelas)->orderBy('kelas', 'ASC')->findAll();
 	    }else{
-	      return $this->where('kelas', $kelas)->where('jurusan', $jurusan)->orderBy('nama', 'ASC')->findAll();
+	      return $this->where('kelas', $kelas)->where('jurusan', $jurusan)->orderBy('kelas', 'ASC')->findAll();
 	    }
 	  }
 	}

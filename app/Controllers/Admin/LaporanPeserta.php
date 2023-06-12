@@ -79,75 +79,75 @@ class LaporanPeserta extends BaseController
 	
 	public function cetakExcel()
 	{
-	  $kelas = $this->request->getPost('kelas'); 
-	  $jurusan = $this->request->getPost('jurusan'); 
+		$kelas = $this->request->getPost('kelas'); 
+		$jurusan = $this->request->getPost('jurusan'); 
 
-	  $data_peserta = $this->model->cetak($kelas,$jurusan);
-	  
-	  if(empty($data_peserta)){
-	    session()->setFlashdata('info-peserta-excel', "Oupss.. maaf sepertinya tidak ada data untuk siswa kelas $kelas dan jurusan $jurusan");
-	    return redirect()->to(base_url('admin/laporan/peserta'));
-	  }
-	  
-	  if($kelas == ''){
-	    if($jurusan == ''){
-	      $nama_file = 'data_peserta';
-	    }else{
-	      $nama_file = 'data_peserta_all_' . $jurusan;
-	    }
-	  }else {
-	    if($jurusan == ''){
-	      $nama_file = 'data_peserta_' . $kelas . '_all';
-	    }else{
-	      $nama_file = 'data_peserta_' . $kelas . '_' . $jurusan;
-	    }
-	  }
-	  
-	  $spreadsheet = new Spreadsheet();
-    $sheet = $spreadsheet->getActiveSheet();
-    $sheet->setCellValue('A1', 'No');
-    $sheet->setCellValue('B1', 'Username');
-    $sheet->setCellValue('C1', 'Password');
-    $sheet->setCellValue('D1', 'Nama');
-    $sheet->setCellValue('E1', 'Kelas');
-    $sheet->setCellValue('F1', 'Jurusan');
-    
-    $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
-    $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
-    $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
-    $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
-    $spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
-    $spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
-	  $column = 2;
-	  $no = 1;
-	  foreach($data_peserta as $dt){
-	    $sheet->setCellValue('A' . $column, $no++);
-	    $sheet->setCellValue('B' . $column, $dt->username);
-	    $sheet->setCellValue('C' . $column, $dt->password);
-	    $sheet->setCellValue('D' . $column, $dt->nama);
-	    $sheet->setCellValue('E' . $column, $dt->kelas);
-	    $sheet->setCellValue('F' . $column, $dt->jurusan);
-	    $column++;
-	  }
-	  $styleArray = [
-    'borders' => [
-        'allBorders' => [
-            'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN
-        ],
-      ],
-     ];
-	  $sheet->getStyle('A1:F' . ($column - 1))->applyFromArray($styleArray);
-	  $writer = new Xls($spreadsheet);
-	  
-	  
-    // Redirect hasil generate xlsx ke web client
-    header('Content-type: application/vnd.ms-excel');
-    header('Content-Disposition: attachment;filename='.$nama_file.'.xls');
-    header('Cache-Control: max-age=0');
+		$data_peserta = $this->model->cetak($kelas,$jurusan);
+		
+		if(empty($data_peserta)){
+			session()->setFlashdata('info-peserta-excel', "Oupss.. maaf sepertinya tidak ada data untuk siswa kelas $kelas dan jurusan $jurusan");
+			return redirect()->to(base_url('admin/laporan/peserta'));
+		}
+		
+		if($kelas == ''){
+			if($jurusan == ''){
+				$nama_file = 'data_peserta';
+			}else{
+				$nama_file = 'data_peserta_all_' . $jurusan;
+			}
+		}else {
+			if($jurusan == ''){
+				$nama_file = 'data_peserta_' . $kelas . '_all';
+			}else{
+				$nama_file = 'data_peserta_' . $kelas . '_' . $jurusan;
+			}
+		}
+		
+		$spreadsheet = new Spreadsheet();
+		$sheet = $spreadsheet->getActiveSheet();
+		$sheet->setCellValue('A1', 'No');
+		$sheet->setCellValue('B1', 'Username');
+		$sheet->setCellValue('C1', 'Password');
+		$sheet->setCellValue('D1', 'Nama');
+		$sheet->setCellValue('E1', 'Kelas');
+		$sheet->setCellValue('F1', 'Jurusan');
+		
+		$spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+		$spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+		$spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+		$spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+		$spreadsheet->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+		$spreadsheet->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+		$column = 2;
+		$no = 1;
+		
+		foreach($data_peserta as $dt){
+			$sheet->setCellValue('A' . $column, $no++);
+			$sheet->setCellValue('B' . $column, $dt->username);
+			$sheet->setCellValue('C' . $column, $dt->password);
+			$sheet->setCellValue('D' . $column, $dt->nama);
+			$sheet->setCellValue('E' . $column, $dt->kelas);
+			$sheet->setCellValue('F' . $column, $dt->jurusan);
+			$column++;
+		}
 
-    $writer->save('php://output');
+		$styleArray = [
+			'borders' => [
+				'allBorders' => [
+					'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN
+				],
+			],
+		];
+		
+		$sheet->getStyle('A1:F' . ($column - 1))->applyFromArray($styleArray);
+		$writer = new Xls($spreadsheet);
+			
+		// Redirect hasil generate xlsx ke web client
+		header('Content-type: application/vnd.ms-excel');
+		header('Content-Disposition: attachment;filename='.$nama_file.'.xls');
+		header('Cache-Control: max-age=0');
 
-    
+		$writer->save('php://output');
 	}
 	
 	

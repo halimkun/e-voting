@@ -31,7 +31,6 @@
                 <?php endif; ?>
                 <form action="<?= base_url(); ?>/admin/setting/edit" method="post" enctype="multipart/form-data">
                   <?= csrf_field(); ?>
-                  <!-- <input type="hidden" name="id_sekolah" value="<?= $data_sekolah['id_sekolah']; ?>"> -->
                   <input type="hidden" name="logo_lama" value="<?= setting('App.logo_sekolah'); ?>">
                   <div class="form-group row mb-4">
                     <label class="col-form-label col-12 col-md-4">
