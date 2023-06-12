@@ -7,6 +7,7 @@ use App\Models\CobaModel;
 class Home extends BaseController
 {
 	protected $anggota;
+	protected $riwayatAnggota;
 	protected $agenda;
 	protected $informasi;
 	protected $webFile;
@@ -15,6 +16,7 @@ class Home extends BaseController
 	public function __construct()
 	{
 		$this->anggota 		= new \App\Models\AnggotaModel();
+		$this->riwayatAnggota = new \App\Models\Riwayatanggota();
 		$this->agenda 		= new \App\Models\AgendaModel();
 		$this->webFile 		= new \App\Models\WebfileModel();
 		$this->informasi 	= new \App\Models\InfoModel();
@@ -147,7 +149,8 @@ class Home extends BaseController
 
 		return view('anggota', [
 			'anggota' => json_encode($anggota),
-			'colCondition' => $this->colCondition
+			'colCondition' => $this->colCondition,
+			'riwayat' => $this->riwayatAnggota->findAll()
 		]);
 	}
 

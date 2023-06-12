@@ -81,6 +81,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
    $routes->get('files', 'Webfile');
    $routes->get('dokumen/delete/(:num)', 'Webfile::delete/$1');
    $routes->get('anggota', 'Anggota');
+   $routes->get('riwayat/anggota/delete/(:num)', 'Anggota::riwayatAnggota_delete/$1');
    $routes->get('profile', 'Profile');
    $routes->get('setting', 'Pengaturan');
    
@@ -104,6 +105,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
    $routes->post('setting/about/update', 'Pengaturan::about_update');
    $routes->post('info/save', 'Info::save');
    $routes->post('anggota/save', 'Anggota::save');
+   $routes->post('riwayat/anggota/save', 'Anggota::riwayatAnggota_save');
    $routes->post('agenda/save', 'Agenda::save');
 
    $routes->post('informasi/summernote/upload', 'Info::summernote_upload');

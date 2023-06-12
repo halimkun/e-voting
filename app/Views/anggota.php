@@ -1,14 +1,18 @@
 <?= $this->extend('layouts'); ?>
 <?= $this->section('content'); ?>
-<header class="masthead-75" style='background: linear-gradient(to bottom, rgba(4, 33, 76, 0.38) 0%, rgba(4, 33, 76, 0.75) 100%), url("https://smankesesi.sch.id/wp-content/uploads/2022/05/IMG_20220512_092459-scaled.jpg"); background-position: top; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;'>
+<header class="masthead-75"
+  style='background: linear-gradient(to bottom, rgba(4, 33, 76, 0.38) 0%, rgba(4, 33, 76, 0.75) 100%), url("https://smankesesi.sch.id/wp-content/uploads/2022/05/IMG_20220512_092459-scaled.jpg"); background-position: top; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;'>
   <div class="container px-4 px-lg-5 h-100">
     <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
       <div class="col-lg-10 align-self-end">
-        <h1 class="text-white font-weight-bold">ANGGOTA OSIS<br><?= setting('App.nama_sekolah') ?></h1>
+        <h1 class="text-white font-weight-bold">ANGGOTA OSIS<br>
+          <?= setting('App.nama_sekolah') ?>
+        </h1>
       </div>
       <div class="col-lg-8 align-self-baseline">
         <p class="text-white mb-5">
-          Dibawah ini adalah struktur organisasi dan kepengurusan <br> OSIS <?= setting('App.nama_sekolah') ?>.
+          Dibawah ini adalah struktur organisasi dan kepengurusan <br> OSIS
+          <?= setting('App.nama_sekolah') ?>.
         </p>
       </div>
     </div>
@@ -22,6 +26,51 @@
       <div id="myDiagramDiv" style="width:100% !important; height:350px !important;"></div>
     </div>
   </div>
+
+  <div class="mt-5">
+    <div class="container">
+      <div class="card">
+        <div class="card-body table-responsive p-0 m-0">
+          <table class="table table-hover table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Jabatan</th>
+                <th>Tahun</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php if (count($riwayat) > 0): ?>
+                <?php $no = 1 ?>
+                <?php foreach ($riwayat as $a): ?>
+                  <tr>
+                    <td>
+                      <?= $no++ ?>
+                    </td>
+                    <td>
+                      <?= $a['nama'] ?>
+                    </td>
+                    <td>
+                      <?= $a['jabatan'] ?>
+                    </td>
+                    <td>
+                      <?= $a['tahun'] ?>
+                    </td>
+                    </td>
+                  </tr>
+                <?php endforeach ?>
+              <?php else: ?>
+                <tr>
+                  <td colspan="4" class="text-center">Tidak ada data</td>
+                </tr>
+              <?php endif ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <?= $this->endSection(); ?>
@@ -30,17 +79,17 @@
 <?= $this->section('script_js'); ?>
 <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     const myDiagram = new go.Diagram("myDiagramDiv", {
       layout: new go.TreeLayout({
-        angle: 0,
-        treeStyle: go.TreeLayout.StyleLastParents,
+        angle: 90,
+        layerStyle: go.TreeLayout.LayerUniform,
+        treeStyle: go.TreeLayout.StyleLayered,
         arrangement: go.TreeLayout.ArrangementHorizontal,
         layerSpacing: 40,
         alternateAngle: 0,
         alternateLayerSpacing: 20,
         alternateAlignment: go.TreeLayout.AlignmentBus,
-
       }),
       initialDocumentSpot: go.Spot.Bottom,
       initialViewportSpot: go.Spot.Bottom,
@@ -48,15 +97,10 @@
     });
 
     myDiagram.nodeTemplate = new go.Node("Horizontal", {
-        background: "#0d6efde6",
-        width: 200,
-        height: 80,
-      })
-      /**.add(new go.Picture({
-            width: 100,
-            height: 100,
-            source: "https://picsum.photos/200",
-          }))**/
+      background: "#0d6efde6",
+      width: 200,
+      height: 80,
+    })
       .add(new go.Panel("Vertical", {
         margin: 20,
         defaultAlignment: go.Spot.Left,

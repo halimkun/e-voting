@@ -63,7 +63,7 @@
             <li class="<?= ($act == 'anggota') ? 'active' : ''; ?>">
               <a class="nav-link" href="<?= base_url(); ?>/admin/anggota">
                 <i class="fas fa-users"></i>
-                <span>Anggota Aktif</span>
+                <span>Anggota</span>
               </a>
             </li>
             <li class="<?= ($act == 'kandidat') ? 'active' : ''; ?>">
