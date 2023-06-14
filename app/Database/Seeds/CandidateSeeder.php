@@ -12,10 +12,10 @@ class CandidateSeeder extends Seeder
     $data = [
       'id_candidate' => $faker->uuid(),
       'no_urut' => '1',
-      'ketua' => 'BUDI BUDIMAN',
-      'wakil' => 'AGUS SANTOSO',
-      'visi' => '<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p><p>Lorem ipsum dolor sit amet.</p><p>Lorem ipsum dolor sit amet. Lorem ipsum dolor.</p><p>Lorem ipsum dolor sit amet janaba.</p><p>Lorem ipsum dolor sit amet jababjaibabahababa.</p>',
-      'misi' => '<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p><p>Lorem ipsum dolor sit amet.</p><p>Lorem ipsum dolor sit amet. Lorem ipsum dolor.</p><p>Lorem ipsum dolor sit amet janaba.</p><p>Lorem ipsum dolor sit amet jababjaibabahababa.</p>',
+      'ketua' => 'WILDAN SANTOSA',
+      'wakil' => 'ANI KURNIA',
+      'visi' => $faker->paragraph($faker->numberBetween(5, 10), true),
+      'misi' => $faker->paragraph($faker->numberBetween(5, 10), true),
       'slogan' => $faker->sentence(),
       'foto' => 'candidate1.jpg'
     ];
@@ -23,10 +23,10 @@ class CandidateSeeder extends Seeder
     $data = [
       'id_candidate' => $faker->uuid(),
       'no_urut' => '2',
-      'ketua' => 'SUSI SUSANTY',
-      'wakil' => 'BURHAN',
-      'visi' => '<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p><p>Lorem ipsum dolor sit amet.</p><p>Lorem ipsum dolor sit amet. Lorem ipsum dolor.</p><p>Lorem ipsum dolor sit amet janaba.</p><p>Lorem ipsum dolor sit amet jababjaibabahababa.</p>',
-      'misi' => '<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p><p>Lorem ipsum dolor sit amet.</p><p>Lorem ipsum dolor sit amet. Lorem ipsum dolor.</p><p>Lorem ipsum dolor sit amet janaba.</p><p>Lorem ipsum dolor sit amet jababjaibabahababa.</p>',
+      'ketua' => 'KEVIN NIDAL IBRAHIM',
+      'wakil' => 'ELVAN DWI SAPUTRA',
+      'visi' => $faker->paragraph($faker->numberBetween(5, 10), true),
+      'misi' => $faker->paragraph($faker->numberBetween(5, 10), true),
       'slogan' => $faker->sentence(),
       'foto' => 'candidate2.jpg'
     ];
@@ -34,10 +34,10 @@ class CandidateSeeder extends Seeder
     $data = [
       'id_candidate' => $faker->uuid(),
       'no_urut' => '3',
-      'ketua' => 'DEWI PUTRI',
-      'wakil' => 'AJENG NUR',
-      'visi' => '<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p><p>Lorem ipsum dolor sit amet.</p><p>Lorem ipsum dolor sit amet. Lorem ipsum dolor.</p><p>Lorem ipsum dolor sit amet janaba.</p><p>Lorem ipsum dolor sit amet jababjaibabahababa.</p>',
-      'misi' => '<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p><p>Lorem ipsum dolor sit amet.</p><p>Lorem ipsum dolor sit amet. Lorem ipsum dolor.</p><p>Lorem ipsum dolor sit amet janaba.</p><p>Lorem ipsum dolor sit amet jababjaibabahababa.</p>',
+      'ketua' => 'ARIP ALKAFF',
+      'wakil' => 'CINDY AYU LESTARI',
+      'visi' => $faker->paragraph($faker->numberBetween(5, 10), true),
+      'misi' => $faker->paragraph($faker->numberBetween(5, 10), true),
       'slogan' => $faker->sentence(),
       'foto' => 'candidate3.jpg'
     ];
