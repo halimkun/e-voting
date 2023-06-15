@@ -127,7 +127,7 @@
                   <td><span id="ketua"></span></td>
                 </tr>
                 <tr>
-                  <th>Nama Ketua</th>
+                  <th>Nama Wakil Ketua</th>
                   <td><span id="wakil"></span></td>
                 </tr>
                 <tr>
