@@ -120,8 +120,8 @@ class Peserta extends BaseController
 		$nama = $this->request->getPost('nama');
 		$kelas = $this->request->getPost('kelas');
 		$jurusan = $this->request->getPost('jurusan');
-		$status_pilihan = $this->request->getPost('status_pilihan');
-		$cek_status_pilihan = $this->request->getPost('cek_status_pilihan');
+		// $status_pilihan = $this->request->getPost('status_pilihan');
+		// $cek_status_pilihan = $this->request->getPost('cek_status_pilihan');
 
 
 		if ($username == '' || $id_peserta == '' || $password == '' || $nama == '' || $kelas == '' || $jurusan == '') {
@@ -148,15 +148,15 @@ class Peserta extends BaseController
 			'nama' => esc($nama),
 			'kelas' => strtoupper(esc($kelas)),
 			'jurusan' => strtoupper(esc($jurusan)),
-			'status_pilihan' => esc($status_pilihan)
+			// 'status_pilihan' => esc($status_pilihan)
 		];
 
-		if ($cek_status_pilihan == true) {
-			if ($status_pilihan == 0) {
-				$data_update['waktu_pilih'] = null;
-				$this->HasilModel->where('id_peserta', $id_peserta)->delete();
-			}
-		}
+		// if ($cek_status_pilihan == true) {
+		// 	if ($status_pilihan == 0) {
+		// 		$data_update['waktu_pilih'] = null;
+		// 		$this->HasilModel->where('id_peserta', $id_peserta)->delete();
+		// 	}
+		// }
 
 		$this->PesertaModel->update($id_peserta, $data_update);
 		setFlasher('Selamat!!', 'success', 'Data-berhasil-diubah!!');

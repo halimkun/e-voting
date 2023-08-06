@@ -22,14 +22,14 @@
             <form action="/admin/dokumen/save" method="post" enctype="multipart/form-data"><?= csrf_field() ?>
               <div class="form-group mb-3">
                 <label for="judul" class="form-label">Judul Dokumen</label>
-                <input type="text" name="judul" id="judul" placeholder="Judul Publikasi Dokumen" class="form-control <?= ($validation->hasError('judul')) ?  'is-invalid' : ''; ?>" value="<?= (old('judul')) ?  old('judul') : '' ?>">
+                <input type="text" name="judul" id="judul" required placeholder="Judul Publikasi Dokumen" class="form-control <?= ($validation->hasError('judul')) ?  'is-invalid' : ''; ?>" value="<?= (old('judul')) ?  old('judul') : '' ?>">
                 <div class="invalid-feedback">
                   <?= $validation->getError('judul'); ?>
                 </div>
               </div>
               <div class="form-group mb-3">
                 <label for="dokumen" class="form-label">Dokumen Publikasi</label>
-                <input type="file" name="dokumen" id="dokumen" class="form-control <?= ($validation->hasError('dokumen')) ?  'is-invalid' : ''; ?>" style="padding: 6.7px 9px;" accept="image/*,.pdf" value="<?= (old('dokumen')) ?  old('dokumen') : '' ?>">
+                <input type="file" required name="dokumen" id="dokumen" class="form-control <?= ($validation->hasError('dokumen')) ?  'is-invalid' : ''; ?>" style="padding: 6.7px 9px;" accept="image/*,.pdf" value="<?= (old('dokumen')) ?  old('dokumen') : '' ?>">
                 <div class="invalid-feedback">
                   <?= $validation->getError('dokumen'); ?>
                 </div>
@@ -39,7 +39,7 @@
               </div>
               <div class="form-group mb-3">
                 <label for="keterangan" class="form-label">Keterangan</label>
-                <textarea type="text" name="keterangan" id="keterangan" class="form-control <?= ($validation->hasError('keterangan')) ?  'is-invalid' : ''; ?>"><?= (old('keterangan')) ?  old('keterangan') : '' ?></textarea>
+                <textarea type="text" name="keterangan" id="keterangan" required class="form-control <?= ($validation->hasError('keterangan')) ?  'is-invalid' : ''; ?>"><?= (old('keterangan')) ?  old('keterangan') : '' ?></textarea>
                 <div class="invalid-feedback">
                   <?= $validation->getError('keterangan'); ?>
                 </div>

@@ -17,7 +17,7 @@
   <div class="container">
     <div class="mb-3">
       <h4 class="m-0 p-0"><?= $info['judul'] ?></h4>
-      <small class="text-secondary"><?= $info['created_at'] ?></small>
+      <small class="text-secondary"><?= date_format(date_create($info['created_at']), "d F Y H:i") ?></small>
     </div>
     <div class="isi">
       <?= $info['isi'] ?>

@@ -39,6 +39,11 @@ class Webfile extends BaseController
 
 		$file = $this->request->getFile('dokumen');
 
+		if ($file->getError() == 4) {
+			setFlasher('Mohon Maaf!!', 'danger', 'File-tidak-boleh-kosong!!');
+			return redirect()->back()->withInput();
+		}
+
 		$rules = [
 			'judul' => 'required|alpha_numeric_punct|max_length[255]',
 		];

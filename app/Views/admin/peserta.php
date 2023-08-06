@@ -250,7 +250,7 @@
                 <input type="text" class="form-control" name="jurusan" autocomplete="off" id="jurusan" required>
               </div>
             </div>
-            <div class="form-group row mb-4" id="wadah_status_pilihan">
+            <!-- <div class="form-group row mb-4" id="wadah_status_pilihan">
               <div class="control-label col-form-label text-md-right col-12 col-md-3 col-lg-3 ">
                 Status Pilihan
               </div>
@@ -266,7 +266,7 @@
                   <span class="custom-switch-description"> Sudah Memilih</span>
                 </label>
               </div>
-            </div>
+            </div> -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -332,8 +332,8 @@
   const kelas = document.getElementById("kelas");
   const jurusan = document.getElementById("jurusan");
   const status_pilihan = document.querySelectorAll(".status_pilihan");
-  const wadah_status_pilihan = document.getElementById('wadah_status_pilihan');
-  const cek_status_pilihan = document.getElementById('cek_status_pilihan');
+  // const wadah_status_pilihan = document.getElementById('wadah_status_pilihan');
+  // const cek_status_pilihan = document.getElementById('cek_status_pilihan');
   
   btnEdits.forEach(function(e){
     e.addEventListener("click", function(el){
@@ -351,10 +351,10 @@
           kelas.value = data.kelas;
           jurusan.value = data.jurusan;
           if(data.status_pilihan == 0){
-            wadah_status_pilihan.classList.add('d-none');
+            // wadah_status_pilihan.classList.add('d-none');
             cek_status_pilihan.value = false;
           }else{
-            wadah_status_pilihan.classList.remove('d-none');
+            // wadah_status_pilihan.classList.remove('d-none');
             cek_status_pilihan.value = true;
             status_pilihan.forEach(function(e){
             if(e.value == data.status_pilihan){

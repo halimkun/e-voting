@@ -166,7 +166,7 @@
             if ($total_suara_masuk == 0) {
               $jmlh_progress = 0;
             } else {
-              $jmlh_progress = $dt['jmlh'] / $total_suara_masuk * 100;
+              $jmlh_progress = $dt['jmlh'] / $jmlh_peserta * 100;
             }
             ?>
             <div class="card-body pt-0 ">

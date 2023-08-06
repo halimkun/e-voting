@@ -27,7 +27,7 @@ class Agenda extends BaseController
 			'css'			=> ['sweetalert/sweetalert2.min'],
 			'js' 			=> ['js/img_preview', 'sweetalert/sweetalert2.all.min', 'js/flasher'],
 			'validation'	=> $this->validation,
-			'agenda'		=> $this->agenda->findAll(),
+			'agenda'		=> $this->agenda->orderBy('mulai', 'DESC')->findAll(),
 		];
 
 		if ($id !== null) {
