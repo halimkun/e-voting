@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,37 +11,38 @@
   <link rel="stylesheet" href="<?= base_url(); ?>/sweetalert/sweetalert2.min.css" type="text/css" media="all" />
   <link rel="stylesheet" href="<?= base_url(); ?>/css/pilih.css" type="text/css" media="all" />
 </head>
+
 <body>
 
   <!-- flasher -->
-  <?php if(session()->getFlashdata('error-pilih')) : ?>
-   <div id="flash-crud" data-title="Oupss.." data-text="Mohon-untuk-memilih-terlebih-dahulu!!!" data-icon="error" data-flash="true"></div>
+  <?php if (session()->getFlashdata('error-pilih')) : ?>
+    <div id="flash-crud" data-title="Oupss.." data-text="Mohon-untuk-memilih-terlebih-dahulu!!!" data-icon="error" data-flash="true"></div>
   <?php endif; ?>
-  
-  <?php if(session()->getFlashdata('info-pilih')) : ?>
-   <?php 
-    session()->remove('login'); 
+
+  <?php if (session()->getFlashdata('info-pilih')) : ?>
+    <?php
+    session()->remove('login');
     unset($_SESSION['login']);
-   ?>
-   <div id="flash-logout" data-title="Terimakasih.." data-text="pilihan-anda-sudah-tersimpan" data-icon="success" data-flash="true"></div>
+    ?>
+    <div id="flash-logout" data-title="Terimakasih.." data-text="pilihan-anda-sudah-tersimpan" data-icon="success" data-flash="true"></div>
   <?php endif; ?>
-  
+
   <nav class="navbar fixed-top pb-0 bg-light">
     <h2 class="nav-brand">
       <?= setting('App.nama_sekolah') ?>
     </h2>
-    
+
     <div class="nav-info" id="info-nama-peserta">
       <h5 class="mb-0">
         <?= getDataPeserta('nama'); ?>
       </h5>
-      <p class="" >
-        <?= getDataPeserta('kelas'); ?> <?= getDataPeserta('jurusan'); ?> / <?= getDataPeserta('username');?>
+      <p class="">
+        <?= getDataPeserta('kelas'); ?> <?= getDataPeserta('jurusan'); ?> / <?= getDataPeserta('username'); ?>
       </p>
     </div>
-   
+
   </nav>
-  
+
   <div class="wadah">
     <!-- <div class="row text-center info">
       <div class="col">
@@ -52,10 +54,37 @@
         </p>
       </div>
     </div> -->
-    
-    <div class="row kotak-pilih">
+
+    <div class="row">
+      <?php foreach ($dt_kandidat as $dt) : ?>
+        <div class="col">
+          <div class="card" style="height:500px;">
+            <div class="card-body">
+              <h4 class="text-center mb-3">
+                <?= $dt->no_urut; ?>
+              </h4>
+              <div class="text-center"><img src="img/candidate/<?= $dt->foto; ?>" class="img-fluid" style="width:60%;" alt="foto kandidat"></div>
+              <h6 class="text-center mt-3 mb-0"><strong><?= $dt->ketua; ?></strong> & <strong><?= $dt->wakil ?></strong></h6>
+              <p class="text-center mt-2"><i>"<?= $dt->slogan; ?>"</i></p>
+            </div>
+            <div class="card-footer">
+              <div class="">
+                <button type="button" class="btn btn-success btnView" data-toggle="modal" data-target="#exampleModal" data-href="<?= base_url(); ?>/pilih/getOneData/<?= $dt->id_candidate; ?>" data-id="1">
+                  <i class="fas fa-eye"></i>
+                </button>
+                <button type="button" class="btn btn-pilih float-right w-50 btnPilih " data-pilih="1">
+                  Pilih
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+
+    <!-- <div class="row kotak-pilih">
       <div class="col-12 d-flex justify-content-center">
-        <?php foreach($dt_kandidat as $dt) : ?>
+        <?php foreach ($dt_kandidat as $dt) : ?>
         <div class="kotak-pilih-satuan mx-2  shadow border">
           <div class="card w-100 border-0">
             <div class="card-body">
@@ -78,21 +107,21 @@
         </div>
         <?php endforeach; ?>
       </div>
-    </div>
-    
+    </div> -->
+
     <div class="row mt-3 mb-5">
       <div class="col-12">
         <form action="<?= base_url(); ?>/pilih/cek" method="post" accept-charset="utf-8" class="">
           <?= csrf_field(); ?>
           <div class="row d-flex justify-content-center ">
             <div class="col d-none">
-              <?php foreach($dt_kandidat as $dtc) : ?>
-              <input type="radio" name="pilihan" id="pilihan"  class="pilihan" value="<?= $dtc->id_candidate; ?>" name="pilihan"/>
+              <?php foreach ($dt_kandidat as $dtc) : ?>
+                <input type="radio" name="pilihan" id="pilihan" class="pilihan" value="<?= $dtc->id_candidate; ?>" name="pilihan" />
               <?php endforeach; ?>
             </div>
             <button class="btn btn-kirim py-2 px-5 shadow" type="submit">
               <h4 class="mb-0">
-                KIRIM 
+                KIRIM
               </h4>
             </button>
           </div>
@@ -101,7 +130,7 @@
     </div>
 
   </div>
-  
+
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -164,7 +193,7 @@
       </div>
     </div>
   </div>
-  
+
   <script src="<?= base_url(); ?>/js/jquery.min.js"></script>
   <script src="<?= base_url(); ?>/js/bootstrap.bundle.min.js"></script>
   <script src="<?= base_url(); ?>/sweetalert/sweetalert2.all.min.js"></script>
@@ -172,7 +201,7 @@
   <script src="<?= base_url(); ?>/js/pilih.js"></script>
   <script>
     const FlashLogout = document.getElementById('flash-logout');
-    if(FlashLogout != null){
+    if (FlashLogout != null) {
       Swal.fire({
         title: 'Terimakasih...',
         text: "Terimakasih telah melakukan pemilihan",
@@ -185,4 +214,5 @@
     }
   </script>
 </body>
+
 </html>

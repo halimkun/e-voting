@@ -58,6 +58,13 @@ class SettingsSeeder extends Seeder
 				'type'		=> 'integer',
 				'context'	=> null
 			],
+			[
+				'class'		=> 'Config\App',
+				'key'		=> 'waktu_selesai',
+				'value'		=> 0,
+				'type'		=> 'string',
+				'context'	=> null
+			]
 		];
 		$db = \Config\Database::connect();
 		$db->table('settings')->insertBatch($data);

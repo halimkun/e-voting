@@ -37,15 +37,51 @@ class Dashboard extends BaseController
 		return view('admin/dashboard', $data);
 	}
 	
-	public function editAcara($param)
+	public function editAcara($acara, $tgl)
 	{
-		setting('App.status_acara', $param);
 		
-		if($param == 1){
+		setting('App.status_acara', $acara);
+		
+		if($acara == 1){
 			$pesan = 'berhasil-memulai-acara!!';
-		} elseif($param == 2){
+			setting('App.waktu_selesai', $tgl);
+		} elseif($acara == 2){
 			$pesan = 'berhasil-menghentikan-acara!!';
 		} else{
+			// hapus hasil
+			$hasil = new HasilModel();
+			$hasil->emptyTable();
+			
+			// hapus peserta memilih
+			$peserta = new PesertaModel();
+			$peserta->resetMemilih();
+			
+			setting('App.status_acara', 0);
+			$pesan = 'berhasil-mereset-acara!!';
+		}
+
+		setFlasher('Selamat!!', 'success', $pesan);
+		return redirect()->to(base_url('/admin/dashboard'));
+	}
+
+	public function editAcaraNew($acara)
+	{
+		
+		setting('App.status_acara', $acara);
+		
+		if($acara == 1){
+			$pesan = 'berhasil-memulai-acara!!';
+		} elseif($acara == 2){
+			$pesan = 'berhasil-menghentikan-acara!!';
+		} else{
+			// hapus hasil
+			$hasil = new HasilModel();
+			$hasil->emptyTable();
+			
+			// hapus peserta memilih
+			$peserta = new PesertaModel();
+			$peserta->resetMemilih();
+			
 			setting('App.status_acara', 0);
 			$pesan = 'berhasil-mereset-acara!!';
 		}

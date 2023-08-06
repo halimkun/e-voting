@@ -50,6 +50,12 @@ class Agenda extends BaseController
 			'keterangan' => $this->request->getPost('keterangan'),
 		];
 
+		// if tanggal selesai < tanggal mulai
+		if ($data['selesai'] < $data['mulai']) {
+			setFlasher('Mohon Maaf!!', 'danger', 'Tanggal-selesai-harus-lebih-besar-dari-tanggal-mulai!!');
+			return redirect()->back()->withInput();
+		}
+
 		if (isset($_POST['id'])) {
 			$data['id'] = $this->request->getPost('id');
 		}

@@ -47,5 +47,19 @@ class BaseController extends Controller
 		// E.g.: $this->session = \Config\Services::session();
 		session();
 		
+		$waktuSelesai = setting('App.waktu_selesai');
+		$statusAcara = setting('App.status_acara');
+		$today = date('Y-m-d H:i:s');
+
+		if ($statusAcara == 1) {
+			// waktu selesai to date
+			$waktuSelesai = strtotime($waktuSelesai);
+			$waktuSelesai = date('Y-m-d H:i:s', $waktuSelesai);
+
+			// if todak >= waktu selesai then stop acara
+			if ($today >= $waktuSelesai) {
+				setting('App.status_acara', 2);
+			}
+		}
 	}
 }

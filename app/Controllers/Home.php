@@ -57,14 +57,14 @@ class Home extends BaseController
 	public function download()
 	{
 		return view('downloads', [
-			'webFile' => $this->webFile->findAll()
+			'webFile' => $this->webFile->orderBy('updated_at', 'DESC')->findAll()
 		]);
 	}
 
 	function informasi()
 	{
 		return view('informasi', [
-			'informasi' => $this->informasi->findAll()
+			'informasi' => $this->informasi->orderBy('updated_at', 'DESC')->findAll()
 		]);
 	}
 

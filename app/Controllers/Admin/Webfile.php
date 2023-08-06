@@ -24,7 +24,7 @@ class Webfile extends BaseController
 			'css'			=> ['sweetalert/sweetalert2.min'],
 			'js' 			=> ['js/img_preview', 'sweetalert/sweetalert2.all.min', 'js/flasher'],
 			'validation'	=> $validation,
-			'publikasi'		=> $this->files->findAll(),
+			'publikasi'		=> $this->files->orderBy('updated_at', "DESC")->findAll(),
 		];
 
 		return view('admin/webFiles', $data);

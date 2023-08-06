@@ -69,7 +69,7 @@
           <?php foreach ($data_hasil as $dt) : ?>
             <?php
             if ($suara_masuk != 0) {
-              $persen = number_format($dt['jmlh'] / $suara_masuk * 100, 2);
+              $persen = number_format($dt['jmlh'] / $jmlh_peserta * 100, 2);
             } else {
               $persen = 0;
             }

@@ -62,7 +62,8 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
    // get routes
    $routes->get('/', 'Dashboard');
    $routes->get('dashboard', 'Dashboard');
-   $routes->get('dashboard/editAcara/(:num)', 'Dashboard::editAcara/$1');
+   $routes->get('dashboard/editAcara/(:num)', 'Dashboard::editAcaraNew/$1');
+   $routes->get('dashboard/editAcara/(:num)/(:any)', 'Dashboard::editAcara/$1/$2');
    $routes->get('kandidat', 'Kandidat');
    $routes->get('kandidat/view/(:any)', 'Kandidat::view/$1');
    $routes->get('kandidat/edit/(:any)', 'Kandidat::edit/$1');

@@ -69,7 +69,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col-lg-4 col-md-4 col-12 col-sm-12">
       <div class="card">
@@ -82,12 +82,12 @@
               <b>Status</b>
             </div>
             <div class="col-md-8">
-              <?php if(setting('App.status_acara') == 0) : ?>
-               Belum Dimulai
-              <?php elseif(setting('App.status_acara') == 1) : ?>
-               Sedang Berlangsung
+              <?php if (setting('App.status_acara') == 0) : ?>
+                Belum Dimulai
+              <?php elseif (setting('App.status_acara') == 1) : ?>
+                Sedang Berlangsung
               <?php else : ?>
-               Sudah Selesai
+                Sudah Selesai
               <?php endif; ?>
             </div>
           </div>
@@ -109,35 +109,49 @@
           </div>
           <div class="row  pt-2">
             <div class="col-6 text-center">
-             <h6 class="text-primary mb-0">
-               <?= $sudah_memilih_persen; ?>
-             </h6>
-             <p>sudah memilih</p>
+              <h6 class="text-primary mb-0">
+                <?= $sudah_memilih_persen; ?>
+              </h6>
+              <p>sudah memilih</p>
             </div>
             <div class="col-6 text-center">
-             <h6 class="text-danger mb-0">
-               <?= $belum_memilih_persen; ?>
-             </h6>
-             <p>belum memilih</p>
+              <h6 class="text-danger mb-0">
+                <?= $belum_memilih_persen; ?>
+              </h6>
+              <p>belum memilih</p>
             </div>
-
           </div>
 
-          <div class="text-center pt-1 pb-1">
-            <?php if(setting('App.status_acara') == 0) : ?>
-              <a href="<?= base_url(); ?>/admin/dashboard/editAcara/1" class="btn btn-success btn-lg btn-round" onclick="return confirm('Yakin ingin memulai acara??');">
-                Mulai Acara
-              </a>
-            <?php elseif(setting('App.status_acara') == 1) : ?>
-              <a href="<?= base_url(); ?>/admin/dashboard/editAcara/2" class="btn btn-warning btn-lg btn-round" onclick="return confirm('Yakin ingin menghentikan acara??');">
-                Berhentikan Acara
-              </a>
-            <?php else : ?>
-              <a href="<?= base_url(); ?>/admin/dashboard/editAcara/0" class="btn btn-danger btn-lg btn-round" onclick="return confirm('Yakin ingin kembali ke persiapan?. Data hasil akan di reset ke awal lagi!!');">
-                Kembali Ke Persiapan
-              </a>
-            <?php endif; ?>
-      </div>
+          <!-- input date timewaktu selesai -->
+          <div class="p-3 bg-secondary">
+            <div class="row mb-2">
+              <div class="col-md-12 col-sm-12 mb-1">
+                <b>Waktu Selesai</b>
+              </div>
+              <div class="col-md-12 mb-3">
+                <div class="input-group">
+                  <input type="datetime-local" <?= setting('App.status_acara') !== 0 ? 'disabled' : '' ?> class="form-control" name="waktu_selesai" id="waktu_selesai" value="<?= setting('App.waktu_selesai'); ?>" autocomplete="off" />
+                </div>
+              </div>
+            </div>
+
+            <div class="text-center pt-1 pb-1">
+              <?php if (setting('App.status_acara') == 0) : ?>
+                <a href="<?= base_url(); ?>/admin/dashboard/editAcara/1" id="btn-acara" class="btn btn-success btn-lg btn-round" onclick="return confirm('Yakin ingin memulai acara??');">
+                  Mulai Acara
+                </a>
+              <?php elseif (setting('App.status_acara') == 1) : ?>
+                <a href="<?= base_url(); ?>/admin/dashboard/editAcara/2" id="btn-acara" class="btn btn-warning btn-lg btn-round" onclick="return confirm('Yakin ingin menghentikan acara??');">
+                  Berhentikan Acara
+                </a>
+              <?php else : ?>
+                <a href="<?= base_url(); ?>/admin/dashboard/editAcara/0" id="btn-acara" class="btn btn-danger btn-lg btn-round" onclick="return confirm('Yakin ingin kembali ke persiapan?. Data hasil akan di reset ke awal lagi!!');">
+                  Kembali Ke Persiapan
+                </a>
+              <?php endif; ?>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -146,14 +160,14 @@
         <div class="card-header">
           <h4>Statistik</h4>
         </div>
-        <?php if(setting('App.status_acara') != 0) : ?>
-          <?php foreach($data_chart as $dt) : ?>
-            <?php 
-              if($total_suara_masuk == 0){
-                $jmlh_progress = 0;
-              } else{
-                $jmlh_progress = $dt['jmlh'] / $total_suara_masuk * 100;
-              }
+        <?php if (setting('App.status_acara') != 0) : ?>
+          <?php foreach ($data_chart as $dt) : ?>
+            <?php
+            if ($total_suara_masuk == 0) {
+              $jmlh_progress = 0;
+            } else {
+              $jmlh_progress = $dt['jmlh'] / $total_suara_masuk * 100;
+            }
             ?>
             <div class="card-body pt-0 ">
               <div class="mb-3 row p-1 pl-0 border rounded ">
@@ -188,10 +202,41 @@
 
 <?= $this->endSection(); ?>
 
+<?= $this->section('script_js'); ?>
+<!-- if waktu_selesai not set disable all btn-acara -->
+<script>
+  $(document).ready(function() {
+    if ($('#waktu_selesai').val() == '') {
+      $('#btn-acara').addClass('disabled');
+    }
 
+    // waktu_selesai change
+    $('#waktu_selesai').change(function() {
+      localStorage.removeItem('waktu_selesai');
+      if ($(this).val() != '') {
+        // if this val <= now show alert and set val 0
+        var waktuSelesai = $(this).val();
+        var waktuSelesai = new Date(waktuSelesai);
+        var now = new Date();
+        if (waktuSelesai <= now) {
+          alert('Waktu selesai harus lebih besar dari waktu sekarang');
+          $(this).val('');
+          return false;
+        }
 
+        $('#btn-acara').removeClass('disabled');
+        $('#btn-acara').removeAttr('disabled');
+        
+        var url = $("#btn-acara").attr("href");
+        var newUrl = url + '/' + $(this).val();
+        $("#btn-acara").attr("href", newUrl);
+      
+      } else {
+        $('#btn-acara').addClass('disabled');
+        $('#btn-acara').attr('disabled', 'disabled');
+      }
 
-
-
-
-
+    });
+  });
+</script>
+<?= $this->endSection(); ?>

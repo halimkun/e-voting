@@ -61,6 +61,12 @@ class PesertaModel extends Model
 	  }
 	}
 	
-	
+	public function resetMemilih() {
+		// ganti semua status_pilihan menjadi 0 jika status_pilihan != 0
+		$this->where('status_pilihan !=', '0')->set(['status_pilihan' => '0'])->update();
+
+		// ganti semua waktu_pilih menjadi null jika waktu_pilih != null
+		$this->where('waktu_pilih !=', null)->set(['waktu_pilih' => null])->update();
+	}
 
 }

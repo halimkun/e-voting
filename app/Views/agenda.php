@@ -27,11 +27,19 @@
                         <table class="table">
                             <tr>
                                 <th>Mulai</th>
-                                <td><?= $agenda['mulai'] ?></td>
+                                <td>
+                                    <?= date_format(date_create($agenda['mulai']), 'd F Y') ?>
+                                    <br>
+                                    <?= date_format(date_create($agenda['mulai']), 'H:i') ?> WIB
+                                </td>
                             </tr>
                             <tr>
                                 <th>Selesai</th>
-                                <td><?= $agenda['selesai'] ?></td>
+                                <td>
+                                    <?= date_format(date_create($agenda['selesai']), 'd F Y') ?>
+                                    <br>
+                                    <?= date_format(date_create($agenda['selesai']), 'H:i') ?> WIB
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -40,7 +48,7 @@
                     <div class="card card-body mb-3 shadow-sm p-4">
                         <div class="mb-3">
                             <h4 class="m-0 p-0 mb-2"><?= $agenda['acara'] ?></h4>
-                            <p class="m-0 p-0"><small class="text-secondary">Dibuat : <?= $agenda['created_at'] ?></small></p>
+                            <p class="m-0 p-0"><small class="text-secondary">Dibuat : <?= date_format(date_create($agenda['created_at']), "d F Y H:i") ?></small></p>
                         </div>
                         <?= $agenda['keterangan'] ?>
                     </div>

@@ -26,7 +26,7 @@ class Info extends BaseController
 
 		if ($id == null) {
 			$data['title'] = 'TAMBAH INFORMASI';
-			$data['info'] = $this->info->findAll();
+			$data['info'] = $this->info->orderBy('updated_at', 'DESC')->findAll();
 		} else {
 			$data['title'] = 'EDIT INFORMASI';
 			$data['info'] = $this->info->find($id);
