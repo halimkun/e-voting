@@ -39,7 +39,7 @@
             </div>
             <div class="px-3 w-100 border-4 border-start">
               <h1 class="m-0 p-0" style="text-transform: capitalize !important;"><?= strtolower($artikel['judul']) ?></h1>
-              <h6 class="m-0 p-0" style="opacity: .9;"><?= getFullTimeFromDate($artikel['created_at']) ?></h6>
+              <h6 class="m-0 p-0" style="opacity: .9;"><?= getDataAdmin('nama', $artikel['user_id']) ?> <span class="mx-2">|</span> <?= getFullTimeFromDate($artikel['created_at']) ?></h6>
             </div>
           </div>
         </a>

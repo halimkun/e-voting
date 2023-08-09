@@ -1,10 +1,10 @@
 <?php
 
 
-function getDataAdmin($field)
+function getDataAdmin($field, $id = null)
 {
   $db = \Config\Database::connect();
-  $id_admin = session()->get('login')['id'];
+  $id_admin = $id !== null ? $id : session()->get('login')['id'];
   $data = $db->table('admin')->where('id_admin', $id_admin)->get()->getRowArray();
   return $data[$field];
 }

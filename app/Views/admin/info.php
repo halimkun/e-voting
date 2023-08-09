@@ -54,6 +54,7 @@
           </div>
           <div class="card-body pt-2">
             <form action="/admin/info/save" method="post" enctype="multipart/form-data"><?= csrf_field() ?>
+            <input type="hidden" name="user_id" value="<?= session()->get('login')['id'] ?>">
               <?php if (isset($id)) : ?>
                 <input type="hidden" name="id" value="<?= $info['id'] ?>">
               <?php endif; ?>

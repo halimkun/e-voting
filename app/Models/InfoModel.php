@@ -15,7 +15,7 @@ class InfoModel extends Model
 	protected $useSoftDelete        = false;
 	protected $protectFields        = true;
 	protected $allowedFields        = [
-		'judul', 'isi', 'gambar'
+		'judul', 'isi', 'gambar', 'user_id'
 	];
 
 	// Dates

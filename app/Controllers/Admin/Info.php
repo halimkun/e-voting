@@ -41,8 +41,8 @@ class Info extends BaseController
 		$data = [
 			'judul' => $this->request->getPost('judul'),
 			'isi' => $this->request->getPost('isi'),
+			'user_id' => session()->get('login')['id'],
 		];
-
 
 		$rules = [
 			'judul' => 'required|alpha_numeric_punct|max_length[255]',

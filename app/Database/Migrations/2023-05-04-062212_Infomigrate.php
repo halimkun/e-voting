@@ -13,6 +13,10 @@ class Infomigrate extends Migration
 				'type' => 'INT',
 				'auto_increment' => TRUE
 			],
+			'user_id' => [
+				'type' => 'VARCHAR',
+				'constraint' => 255
+			],
 			'judul' => [
 				'type' => 'VARCHAR',
 				'constraint' => 255
