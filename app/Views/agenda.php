@@ -7,7 +7,7 @@
                 <h1 class="text-white font-weight-bold m-0 p-0" style="text-transform: capitalize !important;"><?= strtolower($agenda['acara']) ?></h1>
             </div>
             <div class="col-lg-8 align-self-baseline text-white-75">
-                dibuat pada : <?= $agenda['created_at'] ?>
+                dibuat pada : <?= date_format(date_create($agenda['created_at'] ), 'd F Y H:i') ?>
             </div>
         </div>
     </div>

@@ -84,10 +84,10 @@
                       <td><?= $no++ ?></td>
                       <td><strong><?= $a['acara'] ?></strong></td>
                       <td>
-                        <div style="font-size: 11px;"><?= $a['mulai'] ?></div>
+                        <div style="font-size: 11px;"><?= date_format(date_create($a['mulai']), 'd F Y') ?></div>
                       </td>
                       <td>
-                        <div style="font-size: 11px;"><?= $a['selesai'] ?></div>
+                        <div style="font-size: 11px;"><?= date_format(date_create($a['selesai']), 'd F Y') ?></div>
                       </td>
                       <td>
                         <div class="d-flex ">

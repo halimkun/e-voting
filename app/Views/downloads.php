@@ -38,7 +38,7 @@
                 <small class="m-0 p-0" style="opacity: .7;"><?= $file['keterangan'] ?></small>
               </td>
               <td>
-                <?= $file['updated_at'] ?> <br>
+                <?= date_format(date_create($file['updated_at']), 'd F Y') ?> <br>
                 <small>
                   <?php
                   $date = new DateTime($file['updated_at']);

@@ -82,7 +82,7 @@
                         <?php endif ?>
                       </td>
                       <td><a href="/files/publication/<?= $p['file'] ?>" target="_blank"><i class="fa fa-download"></i></a></td>
-                      <td><div class="text-sm"><?= $p['updated_at'] ?></div></td>
+                      <td><div class="text-sm"><?= date_format(date_create($p['updated_at']), 'd F Y') ?></div></td>
                       <td>
                         <a class="text-danger" onClick="return confirm('Apakah anda yakin akan menghapus publikasi - <?= $p['judul'] ?>')" href="/admin/dokumen/delete/<?= $p['id'] ?>"><i class="fa fa-trash text-danger"></i></a>
                       </td>
