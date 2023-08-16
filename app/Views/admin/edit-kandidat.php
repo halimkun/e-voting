@@ -17,7 +17,7 @@
             </div>
           </div>
           <div class="card-body">
-            <?php if($validation->hasError('foto')) : ?>
+            <?php if ($validation->hasError('foto')) : ?>
               <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <?= $validation->getError('foto'); ?>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -25,7 +25,7 @@
                 </button>
               </div>
             <?php endif; ?>
-            <?php if($validation->hasError('visi')) : ?>
+            <?php if ($validation->hasError('visi')) : ?>
               <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <?= $validation->getError('visi'); ?>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -33,7 +33,7 @@
                 </button>
               </div>
             <?php endif; ?>
-            <?php if($validation->hasError('misi')) : ?>
+            <?php if ($validation->hasError('misi')) : ?>
               <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <?= $validation->getError('misi'); ?>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -41,8 +41,8 @@
                 </button>
               </div>
             <?php endif; ?>
-            
-            
+
+
             <form action="<?= base_url(); ?>/admin/kandidat/update/<?= $data_candidate->id_candidate; ?>" method="post" enctype="multipart/form-data">
               <?= csrf_field(); ?>
               <div class="form-group row mb-4">
@@ -61,7 +61,7 @@
                   Nama ketua
                 </label>
                 <div class="col-sm-12 col-md-7">
-                  <input type="text" class="form-control <?= ($validation->hasError('ketua')) ?  'is-invalid' : '' ; ?>"  name="ketua" value="<?= (old('ketua')) ?  old('ketua') : $data_candidate->ketua ; ?>">
+                  <input type="text" class="form-control <?= ($validation->hasError('ketua')) ?  'is-invalid' : ''; ?>" name="ketua" value="<?= (old('ketua')) ?  old('ketua') : $data_candidate->ketua; ?>">
                   <div class="invalid-feedback">
                     <?= $validation->getError('ketua'); ?>
                   </div>
@@ -72,9 +72,20 @@
                   Nama Wakil
                 </label>
                 <div class="col-sm-12 col-md-7">
-                  <input type="text" class="form-control <?= ($validation->hasError('wakil')) ?  'is-invalid' : '' ; ?>" name="wakil" value="<?= (old('wakil')) ?  old('wakil') : $data_candidate->wakil ; ?>">
+                  <input type="text" class="form-control <?= ($validation->hasError('wakil')) ?  'is-invalid' : ''; ?>" name="wakil" value="<?= (old('wakil')) ?  old('wakil') : $data_candidate->wakil; ?>">
                   <div class="invalid-feedback">
                     <?= $validation->getError('wakil'); ?>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row mb-4">
+                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                  Periode
+                </label>
+                <div class="col-sm-12 col-md-7">
+                  <input type="number" min="2010" class="form-control <?= ($validation->hasError('periode')) ?  'is-invalid' : ''; ?>" name="periode" value="<?= (old('periode')) ?  old('periode') : $data_candidate->periode; ?>">
+                  <div class="invalid-feedback">
+                    <?= $validation->getError('periode'); ?>
                   </div>
                 </div>
               </div>
@@ -83,7 +94,7 @@
                   Slogan
                 </label>
                 <div class="col-sm-12 col-md-7">
-                  <input type="text" class="form-control <?= ($validation->hasError('slogan')) ?  'is-invalid' : '' ; ?>" name="slogan" value="<?= (old('slogan')) ?  old('slogan') : $data_candidate->slogan ; ?>">
+                  <input type="text" class="form-control <?= ($validation->hasError('slogan')) ?  'is-invalid' : ''; ?>" name="slogan" value="<?= (old('slogan')) ?  old('slogan') : $data_candidate->slogan; ?>">
                   <div class="invalid-feedback">
                     <?= $validation->getError('slogan'); ?>
                   </div>
@@ -94,7 +105,7 @@
                   Visi
                 </label>
                 <div class="col-sm-12 col-md-7">
-                  <textarea class="editor" name="visi"><?= (old('visi')) ?  old('visi') : $data_candidate->visi ; ?></textarea>
+                  <textarea class="editor" name="visi"><?= (old('visi')) ?  old('visi') : $data_candidate->visi; ?></textarea>
                 </div>
               </div>
               <div class="form-group row mb-4">
@@ -102,7 +113,7 @@
                   Misi
                 </label>
                 <div class="col-sm-12 col-md-7">
-                  <textarea class="editor" name="misi"><?= (old('misi')) ?  old('misi') : $data_candidate->misi ; ?></textarea>
+                  <textarea class="editor" name="misi"><?= (old('misi')) ?  old('misi') : $data_candidate->misi; ?></textarea>
                 </div>
               </div>
               <div class="form-group row mb-0">
@@ -124,7 +135,7 @@
                   <button type="submit" class="btn btn-info btn-icon icon-left float-right"><i class="fas fa-save"></i> Simpan Perubahan</button>
                 </div>
               </div>
-              
+
             </form>
           </div>
         </div>
@@ -137,10 +148,10 @@
 
 <?= $this->section('script_js'); ?>
 <script>
-$(document).ready(function() {
-  $('.editor').summernote({
-    height: 250
+  $(document).ready(function() {
+    $('.editor').summernote({
+      height: 250
+    });
   });
-});
 </script>
 <?= $this->endSection(); ?>

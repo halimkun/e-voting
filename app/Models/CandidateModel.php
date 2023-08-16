@@ -13,7 +13,7 @@ class CandidateModel extends Model
 	protected $returnType           = 'object';
 	protected $useSoftDelete        = false;
 	protected $protectFields        = true;
-	protected $allowedFields        = ['id_candidate', 'no_urut', 'ketua','wakil','visi','misi','slogan','foto'];
+	protected $allowedFields        = ['id_candidate', 'no_urut', 'ketua','wakil','visi','misi','slogan','foto', 'periode'];
 	
 	public function getTotal()
 	{

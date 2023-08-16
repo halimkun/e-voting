@@ -74,6 +74,7 @@
                     <th>Acara</th>
                     <th>Waktu</th>
                     <th>Selesai</th>
+                    <th>Creator</th>
                     <th>#</th>
                   </tr>
                 </thead>
@@ -88,6 +89,11 @@
                       </td>
                       <td>
                         <div style="font-size: 11px;"><?= date_format(date_create($a['selesai']), 'd F Y') ?></div>
+                      </td>
+                      <td>
+                        <div style="font-size: 11px;">
+                          <div class="text-sm"><?= $a['user_id'] != null || $a['user_id'] != "" ? getDataAdmin('nama', $a['user_id']) : "-" ?></div>
+                        </div>
                       </td>
                       <td>
                         <div class="d-flex ">
@@ -135,6 +141,24 @@
         ['para', ['ul', 'ol', 'paragraph']],
         ['insert', ['link']],
       ]
+    });
+
+    var mulai = "";
+    $('#mulai').on('change', function() {
+      $('#selesai').attr('min', $(this).val());
+      mulai = $(this).val();
+    });
+
+    $("#selesai").on('change', function() {
+      if (mulai == "") {
+        alert('waktu mulai belum diisi');
+        $(this).val('');
+      }
+
+      if ($(this).val() < mulai) {
+        alert('Waktu selesai tidak boleh kurang dari waktu mulai');
+        $(this).val('');
+      }
     });
   });
 </script>

@@ -15,7 +15,7 @@ class WebfileModel extends Model
 	protected $useSoftDelete        = false;
 	protected $protectFields        = true;
 	protected $allowedFields        = [
-		'id', 'judul', 'file', 'keterangan'
+		'id', 'judul', 'file', 'keterangan', 'user_id'
 	];
 
 	// Dates

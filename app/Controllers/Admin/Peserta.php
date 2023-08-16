@@ -91,6 +91,12 @@ class Peserta extends BaseController
 					'required' => 'harap isi bidang ini!!'
 				]
 			],
+			'tahun_ajaran' => [
+				'rules' => 'required|numeric|exact_length[4]',
+				'errors' => [
+					'required' => 'harap isi bidang ini!!'
+				]
+			]
 		])) {
 			setFlasher('Oupss..', 'error', 'Tampaknya terjadi kesalahan. Mohon untuk ulangi lagi!!');
 			return redirect()->to(base_url('admin/peserta'))->withInput();
@@ -103,6 +109,7 @@ class Peserta extends BaseController
 			'nama' => esc($this->request->getPost('nama')),
 			'kelas' => strtoupper(esc($this->request->getPost('kelas'))),
 			'jurusan' => strtoupper(esc($this->request->getPost('jurusan'))),
+			'tahun_ajaran' => esc($this->request->getPost('tahun_ajaran')),
 			'status_pilihan' => '0',
 			'waktu_pilih' => null
 		];
@@ -120,11 +127,12 @@ class Peserta extends BaseController
 		$nama = $this->request->getPost('nama');
 		$kelas = $this->request->getPost('kelas');
 		$jurusan = $this->request->getPost('jurusan');
+		$tahun_ajaran = $this->request->getPost('tahun_ajaran');
 		// $status_pilihan = $this->request->getPost('status_pilihan');
 		// $cek_status_pilihan = $this->request->getPost('cek_status_pilihan');
 
 
-		if ($username == '' || $id_peserta == '' || $password == '' || $nama == '' || $kelas == '' || $jurusan == '') {
+		if ($username == '' || $id_peserta == '' || $password == '' || $nama == '' || $kelas == '' || $jurusan == '' || $tahun_ajaran == '') {
 			setFlasher('Oupss..', 'warning', 'Mohon-untuk-mengisi-semua-data!!');
 			return redirect()->to(base_url('admin/peserta'));
 		}
@@ -148,6 +156,7 @@ class Peserta extends BaseController
 			'nama' => esc($nama),
 			'kelas' => strtoupper(esc($kelas)),
 			'jurusan' => strtoupper(esc($jurusan)),
+			'tahun_ajaran' => esc($tahun_ajaran),
 			// 'status_pilihan' => esc($status_pilihan)
 		];
 
@@ -208,6 +217,7 @@ class Peserta extends BaseController
 				'nama' => $sheetData[$i]['3'],
 				'kelas' => strtoupper($sheetData[$i]['4']),
 				'jurusan' => strtoupper($sheetData[$i]['5']),
+				'tahun_ajaran' => $sheetData[$i]['6'],
 				'status_pilihan' => '0',
 				'waktu_pilih' => null
 			];

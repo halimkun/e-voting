@@ -104,6 +104,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
    $routes->post('dokumen/save', 'Webfile::save');
    $routes->post('setting/edit', 'Pengaturan::edit');
    $routes->post('setting/about/update', 'Pengaturan::about_update');
+
+   $routes->post('setting/tahun-ajaran', 'Pengaturan::tahun_ajaran');
+
    $routes->post('info/save', 'Info::save');
    $routes->post('anggota/save', 'Anggota::save');
    $routes->post('riwayat/anggota/save', 'Anggota::riwayatAnggota_save');

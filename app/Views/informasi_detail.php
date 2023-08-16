@@ -7,7 +7,8 @@
         <h1 class="text-white font-weight-bold m-0 p-0" style="text-transform: capitalize !important;"><?= strtolower($info['judul']) ?></h1>
       </div>
       <div class="col-lg-8 align-self-baseline text-white-75">
-        dibuat pada : <?= date_format(date_create($info['created_at'] ), 'd F Y H:i') ?>
+        dibuat pada : <?= date_format(date_create($info['created_at'] ), 'd F Y H:i') ?> <br>
+        <small>Oleh : <?= $info['user_id']!= null || $info['user_id'] != "" ? getDataAdmin('nama', $info['user_id']) : "-" ?></small>
       </div>
     </div>
   </div>

@@ -76,6 +76,25 @@ class Pengaturan extends BaseController
 		return redirect()->to(base_url('/admin/setting'));
 	}
 
+	function tahun_ajaran()
+	{
+		$tahun_ajaran = $this->request->getPost('tahun_ajaran');
+		$rules = [
+			'tahun_ajaran' => [
+				'rules' => 'required|numeric|exact_length[4]'
+			]
+		];
+
+		if (!$this->validate($rules)) {
+			return redirect()->to(base_url('/admin/setting'))->withInput();
+		}
+
+		setting('App.tahun_ajaran', esc($tahun_ajaran));
+
+		setFlasher('Selamat!!', 'success', 'Data-berhasil-diubah!!');
+		return redirect()->to(base_url('/admin/setting'));
+	}
+
 	public function about_update()
 	{
 		$about_sekolah = $this->request->getPost('about_sekolah');

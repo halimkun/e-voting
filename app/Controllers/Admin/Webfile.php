@@ -33,6 +33,7 @@ class Webfile extends BaseController
 	public function save()
 	{
 		$data = [
+			'user_id' => session()->get('login')['id'],
 			'judul' => $this->request->getPost('judul'),
 			'keterangan' => $this->request->getPost('keterangan'),
 		];

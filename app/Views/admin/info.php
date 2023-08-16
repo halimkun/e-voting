@@ -23,6 +23,7 @@
                       <th>No</th>
                       <th>Judul</th>
                       <th>Terakhir Diubah</th>
+                      <th>creator</th>
                       <th>#</th>
                     </tr>
                   </thead>
@@ -32,6 +33,7 @@
                       <td><?= $no++ ?></td>
                       <td><a href="/informasi/<?= $i['id'] ?>" style="text-transform: capitalize !important;" target="_blank"><?= strtolower($i['judul']) ?></a></td>
                       <td><?= date_format(date_create($i['updated_at']), 'd F Y') ?></td>
+                      <td><?= getDataAdmin('nama', $i['user_id']) ?></td>
                       <td>
                         <a href="/admin/info/<?= $i['id'] ?>" class="btn btn-sm btn-icon btn-primary"><i class="fa fa-pen"></i></a>
                         <a href="/admin/info/delete/<?= $i['id'] ?>" class="btn btn-sm btn-icon btn-danger" onClick="return confirm('Anda yakin akan menghapus berita - <?= $i['judul'] ?>')"><i class="fa fa-trash-alt"></i></a>

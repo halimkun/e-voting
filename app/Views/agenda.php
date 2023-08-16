@@ -7,7 +7,8 @@
                 <h1 class="text-white font-weight-bold m-0 p-0" style="text-transform: capitalize !important;"><?= strtolower($agenda['acara']) ?></h1>
             </div>
             <div class="col-lg-8 align-self-baseline text-white-75">
-                dibuat pada : <?= date_format(date_create($agenda['created_at'] ), 'd F Y H:i') ?>
+                dibuat pada : <?= date_format(date_create($agenda['created_at']), 'd F Y H:i') ?> <br>
+                <small>oleh : <?= $agenda['user_id'] != null || $agenda['user_id'] != "" ? getDataAdmin('nama', $agenda['user_id']) : "-" ?></small>
             </div>
         </div>
     </div>
@@ -41,6 +42,12 @@
                                     <?= date_format(date_create($agenda['selesai']), 'H:i') ?> WIB
                                 </td>
                             </tr>
+                            <tr>
+                                <th>Creator</th>
+                                <td>
+                                    <?= $agenda['user_id'] != null || $agenda['user_id'] != "" ? getDataAdmin('nama', $agenda['user_id']) : "-" ?>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                 </div>
@@ -48,7 +55,7 @@
                     <div class="card card-body mb-3 shadow-sm p-4">
                         <div class="mb-3">
                             <h4 class="m-0 p-0 mb-2"><?= $agenda['acara'] ?></h4>
-                            <p class="m-0 p-0"><small class="text-secondary">Dibuat : <?= date_format(date_create($agenda['created_at']), "d F Y H:i") ?></small></p>
+                            <p class="m-0 p-0"><small class="text-secondary">Dibuat : <?= date_format(date_create($agenda['created_at']), "d F Y H:i") ?> | <?= $agenda['user_id']!= null || $agenda['user_id'] != "" ? getDataAdmin('nama', $agenda['user_id']) : "-" ?></small></p>
                         </div>
                         <?= $agenda['keterangan'] ?>
                     </div>

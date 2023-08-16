@@ -15,7 +15,7 @@ class AgendaModel extends Model
 	protected $useSoftDelete        = false;
 	protected $protectFields        = true;
 	protected $allowedFields        = [
-		'mulai', 'selesai', 'acara', 'keterangan', 'foto'
+		'user_id', 'mulai', 'selesai', 'acara', 'keterangan', 'foto'
 	];
 
 	// Dates

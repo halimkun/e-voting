@@ -10,7 +10,7 @@ class PesertaSeeder extends Seeder
 	{
 		$faker = \Faker\Factory::create('id_ID');
 		$nisn_awal = 14507;
-		for ($i = 0; $i < 20; $i++) {
+		for ($i = 0; $i < 50; $i++) {
 		   $data = [
 		     'id_peserta' => $faker->uuid(),
 		     'username' => $nisn_awal++,
@@ -18,6 +18,7 @@ class PesertaSeeder extends Seeder
 		     'nama' => $faker->name(),
 		     'kelas' => $faker->randomElement(['X','XI','XII']),
 		     'jurusan' => $faker->randomElement(['RPL','TKJ','MM', 'AKL']),
+			 'tahun_ajaran' => $faker->randomElement(['2021','2022','2023']),
 		     'status_pilihan' => '0'
 		   ];
 		   $this->db->table('peserta')->insert($data);

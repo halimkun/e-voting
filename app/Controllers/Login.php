@@ -57,6 +57,12 @@ class Login extends BaseController
 			return redirect()->to(base_url('login'))->withInput();
 		}
 
+		$tahun_ajaran = $data->tahun_ajaran;
+		if ($tahun_ajaran != setting('App.tahun_ajaran')) {
+			session()->setFlashdata('info-login', ['alert-danger', 'Maaf Anda tidak terdaftar di tahun ajaran sekarang ( '. setting('App.tahun_ajaran') .' )! <br /> <small>jika anda merasa ini kesalahan, silahkan hubungi panitia.</small>']);
+			return redirect()->to(base_url('login'))->withInput();
+		}
+
 		//.cek apakah sudah memilih 
 		$status_pilihan = $data->status_pilihan;
 		if ($status_pilihan == '1') {

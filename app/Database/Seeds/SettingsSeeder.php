@@ -64,6 +64,13 @@ class SettingsSeeder extends Seeder
 				'value'		=> 0,
 				'type'		=> 'string',
 				'context'	=> null
+			],
+			[
+				'class'		=> 'Config\App',
+				'key'		=> 'tahun_ajaran',
+				'value'		=> 2023,
+				'type'		=> 'string',
+				'context'	=> null
 			]
 		];
 		$db = \Config\Database::connect();

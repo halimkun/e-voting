@@ -25,6 +25,7 @@
             <th class="text-center">No</th>
             <th>Judul File</th>
             <th>Di Upload</th>
+            <th>Uploader</th>
             <th class="text-center">Download</th>
           </tr>
         </thead>
@@ -50,6 +51,7 @@
                   ?>
                 </small>
               </td>
+              <td><?= $file['user_id'] != null || $file['user_id'] != "" ? getDataAdmin('nama', $file['user_id']) : "-" ?></td>
               <td class="text-center"><a href="/files/publication/<?= $file['file'] ?>" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-download"></i></a></td>
             </tr>
           <?php endforeach ?>

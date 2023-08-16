@@ -13,7 +13,7 @@ class PesertaModel extends Model
 	protected $returnType           = 'object';
 	protected $useSoftDelete        = false;
 	protected $protectFields        = true;
-	protected $allowedFields        = ['id_peserta','username', 'password', 'nama','kelas','jurusan','status_pilihan','waktu_pilih'];
+	protected $allowedFields        = ['id_peserta','username', 'password', 'nama','kelas','jurusan','status_pilihan','waktu_pilih', 'tahun_ajaran'];
 	
 	public function getTotal($param = null, $persen = false)
 	{
@@ -37,7 +37,7 @@ class PesertaModel extends Model
 	public function getData($id_peserta = null, $jmlh_pager = 10, $keyword = '')
 	{
 	  if($id_peserta == null){
-	    return $this->like('username', $keyword)->orLike('nama', $keyword)->orLike('kelas', $keyword)->orLike('jurusan',$keyword)->orderBy('nama', 'ASC')->paginate($jmlh_pager, 'peserta');
+	    return $this->like('username', $keyword)->orLike('nama', $keyword)->orLike('kelas', $keyword)->orLike('jurusan',$keyword)->orderBy('tahun_ajaran', 'DESC')->orderBy('nama', 'ASC')->paginate($jmlh_pager, 'peserta');
 	  } else{
 	    $data = $this->where('id_peserta', $id_peserta)->first();
 	    return json_encode($data);

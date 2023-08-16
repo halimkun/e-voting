@@ -44,6 +44,7 @@ class Agenda extends BaseController
 		$fname = $file->getRandomName();
 
 		$data = [
+			'user_id' => session()->get('login')['id'],
 			'mulai'		=> $this->request->getPost('mulai'),
 			'selesai'	=> $this->request->getPost('selesai'),
 			'acara'		=> $this->request->getPost('acara'),

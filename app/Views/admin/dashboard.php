@@ -71,12 +71,20 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-4 col-md-4 col-12 col-sm-12">
+    <div class="col-md-5 col-12 col-sm-12">
       <div class="card">
         <div class="card-header">
           <h4>Info Acara</h4>
         </div>
         <div class="card-body pt-0">
+          <div class="row mb-2 ">
+            <div class="col-md-4 col-sm-12">
+              <b>Tahun Ajaran</b>
+            </div>
+            <div class="col-md-8">
+             <?= setting('App.tahun_ajaran') ?>
+            </div>
+          </div>
           <div class="row mb-2 ">
             <div class="col-md-4 col-sm-12">
               <b>Status</b>
@@ -93,7 +101,7 @@
           </div>
           <div class="row mb-2">
             <div class="col-md-4 col-sm-12">
-              <b>Jumlah Peserta</b>
+              <b>Jml Peserta</b>
             </div>
             <div class="col-md-8">
               <?= $jmlh_peserta; ?>
@@ -101,13 +109,13 @@
           </div>
           <div class="row mb-2">
             <div class="col-md-4 col-sm-12">
-              <b>Jumlah Kandidat</b>
+              <b>Jml Kandidat</b>
             </div>
             <div class="col-md-8">
               <?= $jmlh_candidate; ?>
             </div>
           </div>
-          <div class="row  pt-2">
+          <div class="row  pt-4">
             <div class="col-6 text-center">
               <h6 class="text-primary mb-0">
                 <?= $sudah_memilih_persen; ?>
@@ -155,7 +163,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-8 col-md-8 col-12 col-sm-12">
+    <div class="col-md-7 col-12 col-sm-12">
       <div class="card">
         <div class="card-header">
           <h4>Statistik</h4>

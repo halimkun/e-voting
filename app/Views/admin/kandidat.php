@@ -19,6 +19,7 @@
                 <tr>
                   <th>No Urut</th>
                   <th>Gambar</th>
+                  <th>Periode</th>
                   <th>Ketua</th>
                   <th>wakil</th>
                   <th>Action</th>
@@ -30,6 +31,9 @@
                     </td>
                     <td class="align-middle">
                       <img src="<?= base_url(); ?>/img/candidate/<?= $dt->foto; ?>" alt="foto kandidat" class="img-thumbnail mt-2" width="100">
+                    </td>
+                    <td class="p-0 text-center">
+                      <?= $dt->periode; ?>
                     </td>
                     <td class="align-middle">
                       <?= $dt->ketua; ?>
@@ -120,6 +124,17 @@
                     <input type="text" class="form-control <?= ($validation->hasError('ketua')) ?  'is-invalid' : ''; ?>" name="ketua" value="<?= (old('ketua')) ?  old('ketua') : ''; ?>">
                     <div class="invalid-feedback">
                       <?= $validation->getError('ketua'); ?>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row mb-4">
+                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                    Periode
+                  </label>
+                  <div class="col-sm-12 col-md-7">
+                    <input type="number" min="2010" class="form-control <?= ($validation->hasError('periode')) ?  'is-invalid' : ''; ?>" name="periode" value="<?= (old('periode')) ?  old('periode') : ''; ?>">
+                    <div class="invalid-feedback">
+                      <?= $validation->getError('periode'); ?>
                     </div>
                   </div>
                 </div>

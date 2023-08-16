@@ -24,7 +24,7 @@ class Pilih extends BaseController
 	public function index()
 	{
 		$data = [
-		  'dt_kandidat' => $this->candidateModel->orderBy('no_urut', 'ASC')->findAll(),
+		  'dt_kandidat' => $this->candidateModel->orderBy('no_urut', 'ASC')->where('periode', setting('App.tahun_ajaran'))->findAll(),
 		];
 		
 		return view('pemilihan/index', $data);

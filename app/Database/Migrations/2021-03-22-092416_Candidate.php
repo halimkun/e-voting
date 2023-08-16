@@ -9,39 +9,43 @@ class Candidate extends Migration
 	public function up()
 	{
 		$this->forge->addField([
-		  'id_candidate' => [
-		      'type' => 'VARCHAR',
-		      'constraint' => '150',
-		    ],
-		  'no_urut' => [
-		      'type' => 'INT',
-		      'constraint' => '2',
-		      'unique' => true
-		    ],
-		  'ketua' => [
-		      'type' => 'VARCHAR',
-		      'constraint' => '255'
-		    ],
-		  'wakil' => [
-		      'type' => 'VARCHAR',
-		      'constraint' => '255'
-		    ],
-		  'visi' => [
-		      'type' => 'TEXT'
-		    ],
-		  'misi' => [
-		      'type' => 'TEXT'
-		    ],
-		  'slogan' => [
-		      'type' => 'TEXT'
-		    ],
-		  'foto' => [
-		      'type' => 'VARCHAR',
-		      'constraint' => '255'
-		    ]
+			'id_candidate' => [
+				'type' => 'VARCHAR',
+				'constraint' => '150',
+			],
+			'no_urut' => [
+				'type' => 'INT',
+				'constraint' => '2',
+				'unique' => true
+			],
+			'periode' => [
+				'type' => 'YEAR',
+				'constraint' => '4'
+			],
+			'ketua' => [
+				'type' => 'VARCHAR',
+				'constraint' => '255'
+			],
+			'wakil' => [
+				'type' => 'VARCHAR',
+				'constraint' => '255'
+			],
+			'visi' => [
+				'type' => 'TEXT'
+			],
+			'misi' => [
+				'type' => 'TEXT'
+			],
+			'slogan' => [
+				'type' => 'TEXT'
+			],
+			'foto' => [
+				'type' => 'VARCHAR',
+				'constraint' => '255'
+			]
 		]);
-	  $this->forge->addKey('id_candidate', TRUE);
-	  $this->forge->createTable('candidate', TRUE);
+		$this->forge->addKey('id_candidate', TRUE);
+		$this->forge->createTable('candidate', TRUE);
 	}
 
 	public function down()
