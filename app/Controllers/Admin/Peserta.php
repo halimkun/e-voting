@@ -46,7 +46,7 @@ class Peserta extends BaseController
 			'data_peserta' => $this->PesertaModel->getData(null, $jmlh_data_pagination, $keyword_peserta),
 			'pager' => $this->PesertaModel->pager,
 			'hal' => $hal,
-			'jmlh_all_data' => $this->PesertaModel->getTotal(),
+			'jmlh_all_data' => $this->PesertaModel->countAllResults(),
 			'jmlh_data_pagination' => $jmlh_data_pagination,
 			'validation' => $validation
 		];
