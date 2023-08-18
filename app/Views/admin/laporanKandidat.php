@@ -18,6 +18,14 @@
           <div class="card-body pt-0">
             <form action="<?= base_url(); ?>/admin/cetakPdf/kandidat" method="post">
               <?= csrf_field(); ?>
+              <div class="form-group">
+                <label for="tahun" class="form-label">Tahun</label>
+                <select class="form-control" name="tahun" id="tahun">
+                  <?php foreach($tahun as $t): ?>
+                    <option value="<?= $t['periode']; ?>"><?= $t['periode']; ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
               <button type="submit"  class="btn btn-danger btn-icon icon-left">
                 <i class="fas fa-download"></i>
                 Download PDF

@@ -83,7 +83,7 @@
                   Periode
                 </label>
                 <div class="col-sm-12 col-md-7">
-                  <input type="number" min="2010" class="form-control <?= ($validation->hasError('periode')) ?  'is-invalid' : ''; ?>" name="periode" value="<?= (old('periode')) ?  old('periode') : $data_candidate->periode; ?>">
+                  <input type="number" min="2010" readonly class="form-control <?= ($validation->hasError('periode')) ?  'is-invalid' : ''; ?>" name="periode" value="<?= (old('periode')) ?  old('periode') : $data_candidate->periode; ?>">
                   <div class="invalid-feedback">
                     <?= $validation->getError('periode'); ?>
                   </div>

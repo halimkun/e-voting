@@ -9,12 +9,21 @@ use Dompdf\Dompdf;
 
 class LaporanKandidat extends BaseController
 {
+
+	private $candidateModel;
+
+	public function __construct()
+	{
+		$this->candidateModel = new CandidateModel();
+	}
+
 	public function index()
 	{
 		$data = [
 		  'title' 		=> 'LAPORAN KANDIDAT',
 		  'act_list' 	=> 'laporan_kandidat',
 		  'act' 		=> 'laporan',
+		  'tahun'		=> $this->candidateModel->getTahun(),
 		];
 
 		return view('admin/laporanKandidat', $data);
@@ -24,7 +33,7 @@ class LaporanKandidat extends BaseController
 	{
 	  $kandidatModel = new CandidateModel();
 		$data = [
-			'data_kandidat' => $kandidatModel->orderBy('no_urut', 'ASC')->findAll()
+			'data_kandidat' => $kandidatModel->where('periode', $this->request->getPost('tahun'))->orderBy('no_urut', 'ASC')->findAll()
 		];
 		
 		return view('admin/view_cetak/kandidatPdf', $data);

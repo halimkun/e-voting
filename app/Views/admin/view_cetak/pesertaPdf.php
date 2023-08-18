@@ -72,6 +72,11 @@
               <td style="width:3%">:</td>
               <td style="width:76%"><?= $data_peserta[$in]->jurusan; ?></td>
             </tr>
+            <tr>
+              <th style="width:21%">Tahun Ajaran</th>
+              <td style="width:3%">:</td>
+              <td style="width:76%"><?= $data_peserta[$in]->tahun_ajaran; ?></td>
+            </tr>
           </table>
         </div>
       </div>

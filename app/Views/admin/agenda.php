@@ -143,6 +143,14 @@
       ]
     });
 
+    var now = "<?= date('Y-m-d') . "T" . date("H:i") ?>"
+    // var n = new Date(now);
+    // console.log(n.toISOString().slice(0, 16));
+    $('#mulai').attr('min', now);
+
+    // #mulai min today
+    // $('#mulai').attr('min', new Date().toISOString().slice(0, 16));
+
     var mulai = "";
     $('#mulai').on('change', function() {
       $('#selesai').attr('min', $(this).val());

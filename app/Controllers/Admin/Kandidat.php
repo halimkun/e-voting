@@ -26,7 +26,7 @@ class Kandidat extends BaseController
 			'js' => ['summernote/summernote.min', 'js/img_preview', 'sweetalert/sweetalert2.all.min', 'js/flasher'],
 			'validation' => $validation,
 			'data_candidate' => $this->CandidateModel->getData(),
-			'no_urut_terakhir' => $this->CandidateModel->selectMax('no_urut', 'no_urut')->first()->no_urut
+			'no_urut_terakhir' => $this->CandidateModel->selectMax('no_urut', 'no_urut')->where('periode', setting('App.tahun_ajaran'))->first()->no_urut
 		];
 		return view('admin/kandidat', $data);
 	}
@@ -43,12 +43,19 @@ class Kandidat extends BaseController
 
 	public function add()
 	{
+		// find no_urut from table where periode = tahun_ajaran
+		// $dt = $this->CandidateModel->where('periode', setting('App.tahun_ajaran'))->where('no_urut', $this->request->getPost('no_urut'))->first();
+		// if ($dt) {
+		// 	session()->setFlashdata('CRUD-Tambah', 'Maaf!!, No urut sudah digunakan');
+		// 	return redirect()->to(base_url('admin/kandidat'))->withInput();
+		// }
+
 		if (!$this->validate([
 			'no_urut' => [
-				'rules' => 'required|is_unique[candidate.no_urut]',
+				'rules' => 'required|numeric',
 				'errors' => [
 					'required' => 'bidang harus diisi',
-					'is_unique' => 'no_urut telah digunakan'
+					'numeric' => 'bidang harus berupa angka'
 				]
 			],
 			'periode' => [
@@ -110,14 +117,14 @@ class Kandidat extends BaseController
 		$tmpName = $file['tmp_name'];
 		$eks = explode(".", $namaGb);
 		$eks = end($eks);
-		$namaGb = 'candidate' . $this->request->getPost('no_urut') . '.' . $eks;
+		$namaGb = 'candidate' . $this->request->getPost('no_urut') . '-' . setting('App.tahun_ajaran') .  '.' . $eks;
 		move_uploaded_file($tmpName, 'img/candidate/' .  $namaGb);
 
 		$faker = \Faker\Factory::create('id_ID');
 		$data_insert = [
 			'id_candidate' => $faker->uuid(),
 			'no_urut' => esc($this->request->getPost('no_urut')),
-			'periode' => esc($this->request->getPost('periode')),
+			'periode' => setting('App.tahun_ajaran'),
 			'ketua' => strtoupper(esc($this->request->getPost('ketua'))),
 			'wakil' => strtoupper(esc($this->request->getPost('wakil'))),
 			'visi' => $this->request->getPost('visi'),

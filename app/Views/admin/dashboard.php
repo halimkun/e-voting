@@ -178,7 +178,7 @@
             }
             ?>
             <div class="card-body pt-0 ">
-              <div class="mb-3 row p-1 pl-0 border rounded ">
+              <div class="row p-1 pl-0 border rounded ">
                 <div class="col-md-2 p-0 col-sm-0">
                   <img class="img-thumbnail border-0" src="<?= base_url(); ?>/img/candidate/<?= $dt['foto']; ?>" alt="gambar candidate" />
                 </div>

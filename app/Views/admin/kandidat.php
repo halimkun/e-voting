@@ -129,23 +129,24 @@
                 </div>
                 <div class="form-group row mb-4">
                   <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
-                    Periode
-                  </label>
-                  <div class="col-sm-12 col-md-7">
-                    <input type="number" min="2010" class="form-control <?= ($validation->hasError('periode')) ?  'is-invalid' : ''; ?>" name="periode" value="<?= (old('periode')) ?  old('periode') : ''; ?>">
-                    <div class="invalid-feedback">
-                      <?= $validation->getError('periode'); ?>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group row mb-4">
-                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
                     Nama Wakil
                   </label>
                   <div class="col-sm-12 col-md-7">
                     <input type="text" class="form-control <?= ($validation->hasError('wakil')) ?  'is-invalid' : ''; ?>" name="wakil" value="<?= (old('wakil')) ?  old('wakil') : ''; ?>">
                     <div class="invalid-feedback">
                       <?= $validation->getError('wakil'); ?>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row mb-4">
+                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                    Periode
+                  </label>
+                  <div class="col-sm-12 col-md-7">
+                    <input type="number" min="2010" readonly value="<?= setting('App.tahun_ajaran') ?>" class="form-control <?= ($validation->hasError('periode')) ?  'is-invalid' : ''; ?>" name="periode" value="<?= (old('periode')) ?  old('periode') : ''; ?>">
+                    <div><small>Periode tidak bisa diinputkan manual, jika anda ingin merubahnya silahkan ubah di setting</small></div>
+                    <div class="invalid-feedback">
+                      <?= $validation->getError('periode'); ?>
                     </div>
                   </div>
                 </div>

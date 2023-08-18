@@ -19,19 +19,24 @@
                 <h4>Edit Tahun ajaran</h4>
               </div>
               <div class="card-body pt-0">
+                <?php if (setting('App.status_acara') == 1) : ?>
+                  <div class="alert alert-warning">
+                    <strong>Perhatian!</strong> Tahun ajaran tidak dapat diubah karena status acara sedang berlangsung.
+                  </div>
+                <?php endif ?>
                 <form action="/admin/setting/tahun-ajaran" method="post">
                   <div class="form-group row mb-4">
                     <label class="col-form-label col-12 col-md-4">
                       Tahun Ajaran Saat ini
                     </label>
                     <div class="col-sm-12 col-md-8">
-                      <input type="number" min="2010" class="form-control <?= ($validation->hasError('tahun_ajaran')) ?  'is-invalid' : ''; ?>" name="tahun_ajaran" value="<?= (old('tahun_ajaran')) ?  old('tahun_ajaran') : setting('App.tahun_ajaran'); ?>">
+                      <input type="number" min="2010" <?= setting('App.status_acara') == 1 ? "readonly" :  "" ?> class="form-control <?= ($validation->hasError('tahun_ajaran')) ?  'is-invalid' : ''; ?>" name="tahun_ajaran" value="<?= (old('tahun_ajaran')) ?  old('tahun_ajaran') : setting('App.tahun_ajaran'); ?>">
                       <div class="invalid-feedback">
                         <?= $validation->getError('tahun_ajaran'); ?>
                       </div>
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-primary float-right">
+                  <button type="submit" <?= setting('App.status_acara') == 1 ? 'disabled' : '' ?> class="btn btn-primary float-right">
                     Simpan
                   </button>
                 </form>

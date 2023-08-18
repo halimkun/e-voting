@@ -9,13 +9,22 @@ use Dompdf\Dompdf;
 
 class LaporanHasil extends BaseController
 {
+	private $candidateModel;
+
+	public function __construct()
+	{
+		$this->candidateModel = new CandidateModel();
+	}
+
 	public function index()
 	{
 		$data = [
 		  'title' => 'LAPORAN HASIL VOTING',
 		  'act' => 'laporan',
-		  'act_list' => 'laporan_hasil'
+		  'act_list' => 'laporan_hasil',
+		  'tahun'		=> $this->candidateModel->getTahun(),
 		];
+		
 		return view('admin/laporanHasil', $data);
 	}
 	

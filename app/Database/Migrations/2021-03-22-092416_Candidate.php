@@ -16,7 +16,6 @@ class Candidate extends Migration
 			'no_urut' => [
 				'type' => 'INT',
 				'constraint' => '2',
-				'unique' => true
 			],
 			'periode' => [
 				'type' => 'YEAR',
