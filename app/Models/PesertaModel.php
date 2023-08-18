@@ -18,13 +18,15 @@ class PesertaModel extends Model
 	public function getTotal($param = null, $persen = false)
 	{
 		if ($param === null) {
-			$data =  $this->countAll();
+			$data = $this->where("tahun_ajaran", setting("App.tahun_ajaran"))->selectCount('id_peserta', 'jmlh')->first()->jmlh;
+			// $data =  $this->countAll();
 			return $data;
 		} else if ($param == true) {
-			$data = $this->where('status_pilihan', '1')->selectCount('id_peserta', 'jmlh')->first()->jmlh;
+			$data = $this->where("tahun_ajaran", setting("App.tahun_ajaran"))->where('status_pilihan', '1')->selectCount('id_peserta', 'jmlh')->first()->jmlh;
 		} else if ($param == false) {
-			$data = $this->where('status_pilihan', '0')->selectCount('id_peserta', 'jmlh')->first()->jmlh;
+			$data = $this->where("tahun_ajaran", setting("App.tahun_ajaran"))->where('status_pilihan', '0')->selectCount('id_peserta', 'jmlh')->first()->jmlh;
 		}
+
 		$dt = (int) $data;
 		if ($persen == false) {
 			return number_format($dt, 0, '.', '.');

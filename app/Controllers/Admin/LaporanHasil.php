@@ -47,7 +47,6 @@ class LaporanHasil extends BaseController
 	    'peserta_tidak_memilih' => $modelPeserta->getTotal(false)
 	  ];
 	  
-	  
 	  return view('admin/view_cetak/hasilPdf', $data);
 
 	//   $dompdf = new Dompdf();

@@ -25,7 +25,7 @@ class CandidateModel extends Model
     if($order == false){
       return $this->select('candidate.id_candidate, ketua, wakil, foto')->selectCount('hasil.id_candidate', 'jmlh')->join('hasil', 'hasil.id_candidate = candidate.id_candidate', 'left')->where('periode', setting('App.tahun_ajaran'))->groupBy('candidate.id_candidate')->orderBy('jmlh', 'DESC')->get()->getResultArray();
     } else{
-      return $this->select('candidate.id_candidate, ketua, wakil, foto, no_urut')->selectCount('hasil.id_candidate', 'jmlh')->join('hasil', 'hasil.id_candidate = candidate.id_candidate', 'left')->groupBy('candidate.id_candidate')->orderBy('no_urut', 'ASC')->get()->getResultArray();
+      return $this->select('candidate.id_candidate, ketua, wakil, foto, no_urut')->selectCount('hasil.id_candidate', 'jmlh')->join('hasil', 'hasil.id_candidate = candidate.id_candidate', 'left')->where('periode', setting('App.tahun_ajaran'))->groupBy('candidate.id_candidate')->orderBy('no_urut', 'ASC')->get()->getResultArray();
     }
   }
 	
